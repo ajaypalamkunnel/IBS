@@ -41,7 +41,7 @@
                 if ($r === 'admin') {
                     header("Location: admin_dashboard.php");
                     exit();
-                } else if ($r === 'user') {
+                } else if ($r === 'customer') {
                     header("Location: customer_dashboard.php");
                     exit();
                 } else {
