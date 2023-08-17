@@ -13,8 +13,12 @@
                 <input type="text" placeholder="username" name="username" required><br><br>
                 <label for="password">Password:</label>
                 <input type="password" placeholder="password" name="password" required><br><br>
+
                 <label for="role">Role:</label>
-                <input type="text" placeholder="Admin/Customer" name="role" required><br><br>
+                <select name="role" id="role">
+                <option value="Admin">Admin</option>
+                <option value="Customer">Customer</option>
+                </select>
                 <input type="submit" id="sub" name="login" value="login"><br><br>
             </form>
 </center>
@@ -28,20 +32,20 @@
         $p = $_POST['password']; 
         $r = $_POST['role']; 
         
-        // Use prepared statement to prevent SQL injection
+        // Use prepared statement for SQL execution
         $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
-        $state = mysqli_prepare($conn, $sql);
-       mysqli_stmt_bind_param($state, "sss", $n, $p, $r);
+        $state = mysqli_prepare($conn, $sql); //returns statement object or false if error occurs
+       mysqli_stmt_bind_param($state,"sss", $n, $p, $r);
         mysqli_stmt_execute($state);
         $result = mysqli_stmt_get_result($state);
         //$result=mysqli_query($conn,$sql);
         if (mysqli_num_rows($result) > 0) {
             //echo "Record is found";
             
-                if ($r === 'admin') {
+                if ($r === 'Admin') {
                     header("Location: admin_dashboard.php");
                     exit();
-                } else if ($r === 'customer') {
+                } else if ($r === 'Customer') {
                     header("Location: customer_dashboard.php");
                     exit();
                 } else {
