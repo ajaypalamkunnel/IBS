@@ -57,23 +57,41 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
    $sql2 = "INSERT INTO `accounts_table` (account_no, user_id, balance, opened_on) 
    VALUES ('$accNo', '$username', $balance, '$joinDate')";
 
-
-    $result1 = mysqli_query($conn,$sql1);
-    $result2 = mysqli_query($conn,$sql2);
-
-    if($result1 && $result2){
-
-        echo "Data inserted successfully";
-
-    }else{
-       die(mysqli_error($conn));
-    }
-
-
     
 
+    $checkUsernameQuery = "SELECT COUNT(*) FROM `customer_table` WHERE user_id = '$username'";
+    $usernameResult = mysqli_query($conn, $checkUsernameQuery);
+    $usernameCount = mysqli_fetch_row($usernameResult)[0];
+
+    if ($usernameCount > 0) {
+        echo "Username already exists.";
+    } else {
+        // Check if the account number already exists in accounts_table
+        $checkAccountQuery = "SELECT COUNT(*) FROM `accounts_table` WHERE account_no = '$accNo'";
+        $accountResult = mysqli_query($conn, $checkAccountQuery);
+        $accountCount = mysqli_fetch_row($accountResult)[0];
+
+        if ($accountCount > 0) {
+            echo "Account number already exists.";
+        } else {
+            // Insert into customer_table
+            $result1 = mysqli_query($conn, $sql1);
+
+            // Insert into accounts_table
+            $result2 = mysqli_query($conn, $sql2);
+
+            if ($result1 && $result2) {
+                echo "Data inserted successfully";
+            } else {
+                die(mysqli_error($conn));
+            }
+        }
+    }
+    
+    
 }
 
 
 
 ?>
+
