@@ -1,7 +1,8 @@
 
 <?php
 include "header.php";
-include "user_navbar.php"
+include "user_navbar.php";
+include "customer_add_action.php";
 ?>
 
 
@@ -15,6 +16,7 @@ include "user_navbar.php"
     <title>Signup Form</title>
 </head>
 <body>
+    
     <div class="container mt-5">
         
         <div class="row justify-content-center">
@@ -101,7 +103,7 @@ include "user_navbar.php"
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit"  class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </form>
             </div>
