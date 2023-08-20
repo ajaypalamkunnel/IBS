@@ -39,10 +39,11 @@
             color: #fff;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 7px;
             cursor: pointer;
         }
 
         #sub:hover {
             background-color: #555;
         }
+
