@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
             echo "Invalid role!";
         }
     } else {
-        echo "Invalid login";
+        echo '<script>alert("Invalid login credentials")</script>';
     }
 
     mysqli_stmt_close($state);
