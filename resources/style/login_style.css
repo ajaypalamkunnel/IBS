@@ -1,121 +1,48 @@
-body, html {
-    height: 100%;
-    background: url("images/home.jpg") no-repeat center center fixed;
-    background-size: cover;
-}
 
-.flex-container-background {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    overflow: auto;
-    width: auto;
-}
+        body {
+            background-image: url("https://img.freepik.com/free-vector/money-saving-concept_52683-7986.jpg?w=996&t=st=1692520578~exp=1692521178~hmac=0d0d7e68b036a93c2c9330dd49da9fae4b9ca89591e6ccb7031d4e41489c5c70");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-}
+        .loginform {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 350px;
+            margin: auto;
+            margin-top: 100px;
+        }
 
-.flex-item {
-    margin: auto;
-    margin-top: 0px;
-    background: transparent;
-}
+        .loginform h1 {
+            color: #333;
+        }
 
-.flex-item-0 {
-    margin: auto;
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-.flex-item-1 {
-    margin: auto;
-    margin-top: 50px;
-    background: rgba(0, 0, 0, .5);
-    width: 500px;
-    border-radius: 10px;
-}
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-@media screen and (max-width: 540px) {
-    .flex-item-1 {
-        margin-top: 0px;
-        width: 300px;
-    }
-}
+        #sub {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-@media screen and (max-width: 340px) {
-    .flex-item-1 {
-        margin-top: 0px;
-        width: auto;
-    }
-}
-
-h1[id="form_header"] {
-    line-height: 60px;
-    margin-left: 20px;
-    font-family: Roboto-Thin;
-    font-size: 50px;
-    text-align: center;
-    color: white;
-}
-
-/* Bordered form */
-form {
-    border: 2px solid #f1f1f1;
-    border-radius: 10px;
-}
-
-h2 {
-    font-family: OpenSans-Light;
-    color: white;
-    font-size: 40px;
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.flex-item-login {
-    margin: auto;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    background-color: transparent;
-}
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-    font-family: Roboto-Regular;
-    color: #212121;
-    font-size: 18px;
-    width: 90%;
-    height: 40px;
-    margin: 10px;
-    padding: 1px 1px;
-    bottom: 0;
-    border: 0;
-    box-sizing: border-box;
-    background-color: white;
-    border-radius: 3px;
-}
-
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    font-family: OpenSans-Regular;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-/* Add a hover effect for buttons */
-button:hover {
-    opacity: 0.8;
-}
+        #sub:hover {
+            background-color: #555;
+        }

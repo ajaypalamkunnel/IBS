@@ -1,56 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style/login_style.css">
     <title>Login to Bank</title>
-    <style>
-        body {
-            background-image: url("https://img.freepik.com/free-vector/money-saving-concept_52683-7986.jpg?w=996&t=st=1692520578~exp=1692521178~hmac=0d0d7e68b036a93c2c9330dd49da9fae4b9ca89591e6ccb7031d4e41489c5c70");
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .loginform {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            width: 350px;
-            margin: auto;
-            margin-top: 100px;
-        }
-
-        .loginform h1 {
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        select {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #sub {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #sub:hover {
-            background-color: #555;
-        }
-    </style>
 </head>
 <body>
     <div class="loginform">
