@@ -13,7 +13,7 @@
                 &#9776;
             </a>
             <a id="user">Welcome, &nbspAdmin !</a>
-            <a id="logout" href="logout_action.php" style="border-top-left-radius: 3px;" 
+            <a id="logout" href="login.php" style="border-top-left-radius: 3px;" 
                     onclick="return confirm('Are you sure?')">Logout</a>
         </div>
     </div>

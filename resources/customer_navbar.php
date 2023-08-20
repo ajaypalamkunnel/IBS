@@ -34,7 +34,7 @@
                 &#9776;
             </a>
             <a id="user">Welcome, &nbsp<?php echo "user first_name"; ?> !</a>
-            <a id="logout" href="/logout_action.php" onclick="return confirm('Are you sure?')">Logout</a>
+            <a id="logout" href="login.php" onclick="return confirm('Are you sure?')">Logout</a>
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
         </div>
     </div>
