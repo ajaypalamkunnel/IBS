@@ -2,11 +2,17 @@
 <html>
 <head>
     <title>Login to IBS</title>
+    <style>
+    body {
+ background-image: url("loginbg.png");
+ background-color: lavender;
+}
+    </style>
 </head>
 <body>
         <div class="loginform">
-            <center>
-            <big><h1>Login TO IBS</h1>
+            <center><br><br><br><br><br>
+            <big><h1 style="background-color:purple;">Login TO IBS</h1>
             <br><br>
             <form method="POST" onclick="redirect()">
             <label for="username">Username:</label>
@@ -18,48 +24,50 @@
                 <select name="role" id="role">
                 <option value="Admin">Admin</option>
                 <option value="Customer">Customer</option>
-                </select>
+                </select><br><br>
                 <input type="submit" id="sub" name="login" value="login"><br><br>
             </form>
 </center>
         </div>
+<?php
+require("connection.php");
 
-    <?php
-    require("connection.php");
+// Start the session
+session_start();
 
-    if (isset($_POST["login"])) {
-        $n = $_POST['username']; 
-        $p = $_POST['password']; 
-        $r = $_POST['role']; 
-        
-        // Use prepared statement for SQL execution
-        $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
-        $state = mysqli_prepare($conn, $sql); //returns statement object or false if error occurs
-       mysqli_stmt_bind_param($state,"sss", $n, $p, $r);
-        mysqli_stmt_execute($state);
-        $result = mysqli_stmt_get_result($state);
-        //$result=mysqli_query($conn,$sql);
-        if (mysqli_num_rows($result) > 0) {
-            //echo "Record is found";
-            
-                if ($r === 'Admin') {
-                    header("Location: admin_dashboard.php");
-                    exit();
-                } else if ($r === 'Customer') {
-                    header("Location: customer_dashboard.php");
-                    exit();
-                } else {
-                    // Invalid role, handle as needed
-                    echo "Invalid role!";
-                }
-            }
-         else {
-            echo "Invalid login";
+if (isset($_POST["login"])) {
+    $n = $_POST['username'];
+    $p = $_POST['password'];
+    $r = $_POST['role'];
+
+    // Use prepared statement for SQL execution
+    $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
+    $state = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($state, "sss", $n, $p, $r);
+    mysqli_stmt_execute($state);
+    $result = mysqli_stmt_get_result($state);
+
+    if (mysqli_num_rows($result) > 0) {
+        $user_data = mysqli_fetch_assoc($result);
+
+        // Store user data in session variables
+        $_SESSION['user_id'] = $user_data['user_id'];
+        $_SESSION['role'] = $user_data['role'];
+
+        if ($r === 'Admin') {
+            header("Location: admin_dashboard.php");
+            exit();
+        } else if ($r === 'Customer') {
+            header("Location: customer_dashboard.php");
+            exit();
+        } else {
+            // Invalid role, handle as needed
+            echo "Invalid role!";
         }
-
-        mysqli_stmt_close($state);
+    } else {
+        echo "Invalid login";
     }
-    ?>
-</body>
-</html>
 
+    mysqli_stmt_close($state);
+}
+?>
