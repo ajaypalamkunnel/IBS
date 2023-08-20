@@ -33,13 +33,12 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
-            <a id="user">Welcome, &nbsp<?php echo "user first_name"; ?> !</a>
+            <a id="user">Welcome, User!</a>
             
             <a id="logout" href="/logout_action.php" onclick="return confirm('Are you sure?')">Logout</a>
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
             <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>
             <a id="profile" href="net-banking/customer_navbar.php">About</a>
-            <a id="profile" href="net-banking/customer_navbar.php">Customer Corner</a>
             <a id="profile" href="net-banking/customer_navbar.php">Home</a>
         </div>
     </div>
