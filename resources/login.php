@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login to IBS</title>
+<link rel="stylesheet" href="style/login_style.css">
+    <title>Login to Bank</title>
 </head>
 <body>
-        <div class="loginform">
-            <center>
-            <big><h1>Login TO IBS</h1>
+    <div class="loginform">
+        <center>
+            <h1>Login to IBS</h1>
             <br><br>
             <form method="POST" onclick="redirect()">
-            <label for="username">Username:</label>
-                <input type="text" placeholder="username" name="username" required><br><br>
+                <label for="username">Username:</label>
+                <input type="text" placeholder="Username" name="username" required><br><br>
                 <label for="password">Password:</label>
-                <input type="password" placeholder="password" name="password" required><br><br>
+                <input type="password" placeholder="Password" name="password" required><br><br>
 
                 <label for="role">Role:</label>
                 <select name="role" id="role">
-                <option value="Admin">Admin</option>
-                <option value="Customer">Customer</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Customer">Customer</option>
                 </select>
-                <input type="submit" id="sub" name="login" value="login"><br><br>
+                <input type="submit" id="sub" name="login" value="Login"><br><br>
             </form>
-</center>
-        </div>
-
+        </center>
+    </div>
     <?php
     require("connection.php");
 
@@ -60,6 +60,7 @@
         mysqli_stmt_close($state);
     }
     ?>
+
 </body>
 </html>
 
