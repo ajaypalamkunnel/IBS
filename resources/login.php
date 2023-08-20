@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <linl rel="stylesheet" href="style/login_style.css">
     <title>Login to IBS</title>
-    <style>
-    body {
- background-image: url("loginbg.png");
- background-color: lavender;
-}
-    </style>
 </head>
 <body>
         <div class="loginform">
