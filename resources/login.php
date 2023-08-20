@@ -25,42 +25,46 @@
         </center>
     </div>
     <?php
-    require("connection.php");
+session_start(); // Start the session
+require("connection.php");
 
-    if (isset($_POST["login"])) {
-        $n = $_POST['username']; 
-        $p = $_POST['password']; 
-        $r = $_POST['role']; 
-        
-        // Use prepared statement for SQL execution
-        $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
-        $state = mysqli_prepare($conn, $sql); //returns statement object or false if error occurs
-       mysqli_stmt_bind_param($state,"sss", $n, $p, $r);
-        mysqli_stmt_execute($state);
-        $result = mysqli_stmt_get_result($state);
-        //$result=mysqli_query($conn,$sql);
-        if (mysqli_num_rows($result) > 0) {
-            //echo "Record is found";
-            
-                if ($r === 'Admin') {
-                    header("Location: admin_dashboard.php");
-                    exit();
-                } else if ($r === 'Customer') {
-                    header("Location: customer_dashboard.php");
-                    exit();
-                } else {
-                    // Invalid role, handle as needed
-                    echo "Invalid role!";
-                }
-            }
-         else {
-            echo "Invalid login";
+if (isset($_POST["login"])) {
+    $n = $_POST['username']; 
+    $p = $_POST['password']; 
+    $r = $_POST['role']; 
+    
+    // Use prepared statement for SQL execution
+    $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
+    $state = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($state, "sss", $n, $p, $r);
+    mysqli_stmt_execute($state);
+    $result = mysqli_stmt_get_result($state);
+    
+    if (mysqli_num_rows($result) > 0) {
+        $user_info = mysqli_fetch_assoc($result);
+
+        // Store user information in session variables
+        $_SESSION['user_id'] = $user_info['user_id'];
+        $_SESSION['role'] = $user_info['role'];
+
+        if ($r === 'Admin') {
+            header("Location: admin_dashboard.php");
+            exit();
+        } else if ($r === 'Customer') {
+            header("Location: customer_dashboard.php");
+            exit();
+        } else {
+            // Invalid role, handle as needed
+            echo "Invalid role!";
         }
-
-        mysqli_stmt_close($state);
+    } else {
+        echo '<script>alert("Invalid login credentials")</script>';
     }
-    ?>
+
+  
+    mysqli_stmt_close($state);
+}
+?>
 
 </body>
 </html>
-
