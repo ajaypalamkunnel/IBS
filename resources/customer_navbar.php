@@ -33,9 +33,14 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
+<<<<<<< HEAD
             <a id="user">Welcome, User!</a>
             
             <a id="logout" href="/logout_action.php" onclick="return confirm('Are you sure?')">Logout</a>
+=======
+            <a id="user">Welcome, &nbsp<?php echo "user first_name"; ?> !</a>
+            <a id="logout" href="login.php" onclick="return confirm('Are you sure?')">Logout</a>
+>>>>>>> 54de56de28c84fc0e990425c708900f49a6101c5
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
             <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>
             <a id="profile" href="net-banking/customer_navbar.php">About</a>
