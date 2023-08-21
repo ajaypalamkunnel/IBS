@@ -1,6 +1,7 @@
 <?php
 include "header.php";
 include "user_navbar.php"
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -12,9 +12,16 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
+<<<<<<< HEAD
+            <a id="user">Welcome, Admin !</a>
+            <a id="logout" href="logout_action.php" style="border-top-left-radius: 3px;" 
+=======
             <a id="user">Welcome, &nbspAdmin !</a>
             <a id="logout" href="login.php" style="border-top-left-radius: 3px;" 
+>>>>>>> 54de56de28c84fc0e990425c708900f49a6101c5
                     onclick="return confirm('Are you sure?')">Logout</a>
+                    <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
+                    <a id="profile" href="admin_dashboard.php">Home</a>
         </div>
     </div>
 
