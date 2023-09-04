@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     aadhaar_no, 
     join_date, 
     address, 
-    pin
+    pin,
+    branch
 ) VALUES (
     '$username', 
     '$firstName', 
@@ -55,7 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     '$aadhaarNo', 
     '$joinDate', 
     '$address', 
-    '$pin'
+    '$pin',
+    '$branch'
 )";
 
     //query for login table
