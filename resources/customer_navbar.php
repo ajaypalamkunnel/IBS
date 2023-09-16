@@ -41,7 +41,7 @@
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
             <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>
             <a id="profile" href="net-banking/customer_navbar.php">About</a>
-            <a id="profile" href="net-banking/customer_navbar.php">Home</a>
+            <a id="profile" href="customer_dashboard.php">Home</a>
         </div>
     </div>
 

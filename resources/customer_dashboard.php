@@ -25,7 +25,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
             <div class="one">
 
-                <a href="customer_dashboard.php">
+                <a href="account_details.php">
                 <i class="fa-solid fa-user fa-2xl"></i>
                     <h3>Account Details</h3>
                 </a>

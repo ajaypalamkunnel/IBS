@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $resultlog = mysqli_query($conn, $sqlforlogin);
 
             if ($result1 && $result2) {
-                //echo "Data inserted successfully";
+               // echo "Data inserted successfully";
                 $success = 1;
             } else {
                 die(mysqli_error($conn));
