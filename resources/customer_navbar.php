@@ -33,7 +33,10 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
-            <a id="user">Welcome<?php echo "  dear User!!!!"?> </a>
+            <?php
+                session_start()
+            ?>
+            <a id="user">Welcome  <?php echo $_SESSION['user_id'];?> </a>
             <a id="logout" href="login.php" onclick="return confirm('Are you sure?')">Logout</a>
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
             <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>

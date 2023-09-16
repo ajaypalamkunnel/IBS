@@ -36,7 +36,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
 
             <div class="two">
-                <a href="">
+                <a href="customer_list.php">
                     <i class="fa-solid fa-users fa-2xl"></i>
                     <h3>List customers</h3>
                 </a>
