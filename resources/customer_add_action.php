@@ -73,6 +73,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checkUsernameQuery = "SELECT COUNT(*) FROM `customer_table` WHERE user_id = '$username'";
     $usernameResult = mysqli_query($conn, $checkUsernameQuery);
     $usernameCount = mysqli_fetch_row($usernameResult)[0];
+    // Get the Aadhar number from the form
+    $aadhar = $_POST['aadhar'];
+
+    // Regular expression pattern for a 12-digit Aadhar number
+    $aadharPattern = '/^[0-9]{12}$/';
+
+    // Check if the Aadhar number matches the pattern
+    if (preg_match($aadharPattern, $aadhar)) {
+        // Aadhar number is valid
+    } else {
+        // Aadhar number is invalid, display an error message
+        echo "Invalid Aadhar number. Please enter a valid 12-digit Aadhar number.";
+        // You can also redirect back to the form or take other actions as needed.
+    }
+    // Get the mobile number from the form
+    $mobileNumber = $_POST['phone'];
+
+    // Regular expression pattern for a 10-digit mobile number
+    $mobilePattern = '/^[0-9]{10}$/';
+
+    // Check if the mobile number matches the pattern
+    if (preg_match($mobilePattern, $mobileNumber)) {
+        // Mobile number is valid
+    } else {
+        // Mobile number is invalid, display an error message
+        echo "Invalid mobile number. Please enter a valid 10-digit mobile number.";
+        // You can also redirect back to the form or take other actions as needed.
+    }
+    // Get the PAN card number from the form
+    $panCardNumber = $_POST['Pancard'];
+
+    // Regular expression pattern for a valid PAN card number
+    $panCardPattern = '/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/';
+
+    // Check if the PAN card number matches the pattern
+    if (preg_match($panCardPattern, $panCardNumber)) {
+        // PAN card number is valid
+    } else {
+        // PAN card number is invalid, display an error message
+        echo "Invalid PAN card number. Please enter a valid PAN card number (e.g., ABCDE1234F).";
+        // You can also redirect back to the form or take other actions as needed.
+    }
+    // Get the account number from the form
+    $accountNumber = $_POST['accountNo'];
+
+    // Regular expression pattern for a valid 12-digit account number
+    $accountNumberPattern = '/^[0-9]{12}$/';
+
+    // Check if the account number matches the pattern
+    if (preg_match($accountNumberPattern, $accountNumber)) {
+        // Account number is valid (exactly 12 digits)
+    } else {
+        // Account number is invalid, display an error message
+        echo "Invalid account number. Please enter a valid 12-digit account number.";
+        // You can also redirect back to the form or take other actions as needed.
+    }
+
+
+
 
     if ($usernameCount > 0) {
         $user = 1;
@@ -95,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $resultlog = mysqli_query($conn, $sqlforlogin);
 
             if ($result1 && $result2) {
-               // echo "Data inserted successfully";
+                // echo "Data inserted successfully";
                 $success = 1;
             } else {
                 die(mysqli_error($conn));
