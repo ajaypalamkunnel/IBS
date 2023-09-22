@@ -1,0 +1,72 @@
+/* Style the page header */
+h2 {
+    text-align: center;
+    color: #000000; /* Black color */
+    font-size: 30px; /* Increase font size */
+    margin-bottom: 20px; /* Add space below header */
+}
+
+/* Style the form container */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #6a0dad; /* Purple border */
+    background-color: #f2eaff; /* Light purple background */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.5); /* Purple box shadow */
+}
+
+/* Style form labels */
+label {
+    font-weight: bold;
+    color: #000000; /* Black color */
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #6a0dad; /* Purple border */
+    border-radius: 3px;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #6a0dad; /* Purple color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Style success message */
+p.success {
+    color: #000000; /* Black color */
+    font-weight: bold;
+    background-color: #f2eaff; /* Light purple background */
+    padding: 25px 20px; /* Adjust padding for a small rectangular box */
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 25px; /* Vertical margin */
+    margin-left: 550px; /* Left margin */
+    margin-right: 550px; /* Right margin */
+    box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.5); /* Purple box shadow */
+}
+
+/* Style error message */
+p.error {
+    color: white;
+    font-weight: bold;
+    background-color: #f45050; /* Light purple background */
+    padding: 25px 20px; /* Adjust padding for a small rectangular box */
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 25px; /* Vertical margin */
+    margin-left: 550px; /* Left margin */
+    margin-right: 550px; /* Right margin */
+    box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.5); /* Purple box shadow */
+}

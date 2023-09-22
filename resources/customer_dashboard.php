@@ -67,7 +67,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
 
             <div class="two">
-                <a href="">
+                <a href="view_balance.php">
                 <i class="fa-solid fa-money-check-dollar fa-2xl"></i>
                     <h3>View Balance</h3>
                 </a>

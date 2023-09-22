@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id'])) {
             $result = $stmt->get_result();
 
             if ($result->num_rows !== 1) {
-                $errors[] = "Sender's account does not exist.";
+                $errors[] = "Your account does not exist.";
             } else {
                 $row = $result->fetch_assoc();
                 $sender_balance = $row['balance'];
@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id'])) {
                 } else {
                     // Check if sender has insufficient balance
                     if ($sender_balance < $amount) {
-                        $errors[] = "Insufficient balance in sender's account.";
+                        $errors[] = "Insufficient balance in your account.";
                     }
                 }
             }
@@ -157,7 +157,7 @@ foreach ($errors as $error) {
         <br><br>
         <div class="form-group">
             <!-- Use "type='button'" to prevent form submission and call validateForm() on click -->
-            <button type="button" onclick="showPinModal()">Transfer Funds</button>
+            <button type="button" onclick="showPinModal()">Transfer</button>
             <button type="reset">Reset</button>
         </div>
     </form>
@@ -177,7 +177,7 @@ foreach ($errors as $error) {
     <!-- Display success message -->
     <?php
     if ($success) {
-        echo '<div class="success-alert">Fund transferred successfully.</div>';
+        echo '<div class="success-alert">Fund transfer successfull.</div>';
     }
     ?>
 
