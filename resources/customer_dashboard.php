@@ -16,7 +16,7 @@ include "customer_navbar.php";
 <center>
         <!-- <h2>Hi Welcome Admin!!</h2>
         <div class="discription">
-        <P>From here you can manage all of core Internet Banking settings. You can add/manage customers, view their transactions, edit their details and even delete them. You can also post news on the website.
+        <P>From here you can manage all of core online Banking settings. You can add/manage customers, view their transactions, edit their details and even delete them. You can also post news on the website.
 Please keep in mind that with big power comes big responsibility. Therefore please do not misuse your admin control to create trouble.</P>    
             
             
@@ -34,7 +34,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
 
             <div class="two">
-                <a href="">
+                <a href="fund_transfer.php">
                 <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
                     <h3>Fund transfer</h3>
                 </a>
