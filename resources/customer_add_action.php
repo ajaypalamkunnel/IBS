@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the Aadhar number from the form
     $aadhar = $_POST['aadhar'];
 
-    // Regular expression pattern for a 12-digit Aadhar number
+    // Regular expression pattern for a 12-digit   Aadhar number
     $aadharPattern = '/^[0-9]{12}$/';
 
     // Check if the Aadhar number matches the pattern

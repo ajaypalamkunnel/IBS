@@ -45,8 +45,8 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="three">
 
                 <a href="">
-                <i class="fa-solid fa-bell fa-2xl"></i>
-                    <h3>Notifications</h3>
+                <i class="far fa-credit-card fa-2xl" style="color: #000000;"></i>
+                    <h3>Bill Payments</h3>
                 </a>
             </div>
 
