@@ -1,33 +1,57 @@
+
 body {
-  margin: 0;
+      margin: 0;
+    font-family: sans-serif;
 }
+
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
-.discription{
+
+.discription {
     background-color: rgb(254, 253, 253);
     border: solid 2px #263238;
     font-family: sans-serif;
     width: 95%;
     height: 90px;
     border-radius: 10px;
-  }
-.dash_action_root {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
+
+.dash_action_root {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .one,
 .two,
 .three {
-  text-align: center;
-  background-color: white;
-  border: solid 5px #263238;
-  width: 29%;
-  height: 90px;
-  border-radius: 10px;
-  margin-top: 30px;
-  padding-top: 21px;
+    text-align: center;
+    background-color: white;
+    border: solid 5px #263238;
+    width: 29%;
+    height: 90px;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-top: 21px;
+    cursor: pointer; /* Add a cursor pointer to indicate interactivity */
 }
 
+.icon {
+    transition: transform 0.3s ease-in-out; /* CSS transition for smooth icon movement */
+}
+
+/* Add hover effect for icon movement */
+.one:hover .icon {
+    transform: translateX(-10px);
+    
+}
+
+.two:hover .icon {
+    transform: translateX(10px);
+}
+
+.three:hover .icon {
+    transform: translateY(-10px);
+}

@@ -11,16 +11,14 @@ include "customer_navbar.php";
     <link rel="stylesheet" href="style/admin_dashboard_style.css">
     <script src="https://kit.fontawesome.com/8e0f91f1ba.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-<center>
-        <!-- <h2>Hi Welcome Admin!!</h2>
+    <center>
+        <br><br>
         <div class="discription">
-        <P>From here you can manage all of core Internet Banking settings. You can add/manage customers, view their transactions, edit their details and even delete them. You can also post news on the website.
-Please keep in mind that with big power comes big responsibility. Therefore please do not misuse your admin control to create trouble.</P>    
-            
-            
-        </div> -->
+        <P>From here you can manage all of core online Banking facilities. You can perform transactions, edit details and view them. You can also see latest updates on the website.
+Please remember to keep your privacy.</P>    
+        </div> 
+
         <div class="dash_action_root">
 
             <div class="one">
@@ -31,25 +29,21 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
                 </a>
             </div>
 
-
-
             <div class="two">
-                <a href="">
+                <a href="fund_transfer.php">
                 <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
                     <h3>Fund transfer</h3>
                 </a>
             </div>
 
 
-
             <div class="three">
 
                 <a href="">
                 <i class="fa-solid fa-bell fa-2xl"></i>
-                    <h3>Notifications</h3>
+                    <h3>Transaction</h3>
                 </a>
             </div>
-
 
 
 
@@ -65,14 +59,12 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             </div>
 
 
-
             <div class="two">
-                <a href="">
+                <a href="view_balance.php">
                 <i class="fa-solid fa-money-check-dollar fa-2xl"></i>
                     <h3>View Balance</h3>
                 </a>
             </div>
-
 
 
             <div class="three">
@@ -82,12 +74,25 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
                     <h3>Contact us</h3>
                 </a>
             </div>
-
-
-
-
         </div>
-
     </center>
+    <br><br>
+    <div style="background-color: #263238; color: white; text-align: center; padding: 10px; border-top: 3px solid #1976D2; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); overflow: hidden; white-space: nowrap; height: 30px;">
+            <marquee behavior="scroll" direction="left" scrollamount="infinite">
+                <span style="font-weight: none; padding-right: 20px; font-size: 20px; display: flex; align-items: center;">**<?php
+            // Retrieve and display notifications from the notifications file
+            $notificationFile = 'notifications.txt';
+
+            if (file_exists($notificationFile)) {
+                $notifications = file($notificationFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                foreach ($notifications as $notification) {
+                    echo htmlspecialchars($notification) . ' &nbsp;&nbsp;&nbsp; ';
+                }
+            } else {
+                echo "No notifications available.";
+            }
+            ?>**</span>
+            </marquee>
+        </div>
 </body>
 </html>
