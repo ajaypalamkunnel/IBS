@@ -44,6 +44,7 @@ if (isset($_POST["login"])) {
         $user_info = mysqli_fetch_assoc($result);
 
         // Store user information in session variables
+       // $_SESSION['username']= $user_info[''];
         $_SESSION['user_id'] = $user_info['user_id'];
         $_SESSION['role'] = $user_info['role'];
 
