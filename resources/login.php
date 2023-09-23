@@ -47,7 +47,17 @@ if (isset($_POST["login"])) {
        // $_SESSION['username']= $user_info[''];
         $_SESSION['user_id'] = $user_info['user_id'];
         $_SESSION['role'] = $user_info['role'];
-
+                // Fetch the account_no based on user_id
+                $sql = "SELECT account_no FROM accounts_table WHERE user_id=?";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_id']);
+                mysqli_stmt_execute($stmt);
+                $account_result = mysqli_stmt_get_result($stmt);
+                
+                if (mysqli_num_rows($account_result) > 0) {
+                    $account_info = mysqli_fetch_assoc($account_result);
+                    $_SESSION['account_no'] = $account_info['account_no'];
+                }
         if ($r === 'Admin') {
             header("Location: admin_dashboard.php");
             exit();
