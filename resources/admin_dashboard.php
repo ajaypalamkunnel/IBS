@@ -60,7 +60,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
             <div class="one">
 
-                <a href="">
+                <a href="notifications.php">
                 <i class="fa-solid fa-newspaper fa-2xl"></i>
                     <h3>Add News/Notification</h3>
                 </a>
