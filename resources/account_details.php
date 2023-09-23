@@ -9,7 +9,9 @@
 <body>
     <?php
      include "connection.php";
-     include "customer_navbar.php";?>
+     include "header.php";
+     include "customer_navbar.php";
+     ?>
     <div class="container">
         <?php
        
