@@ -1,6 +1,6 @@
 <?php
 include "header.php";
-include "customer_navbar.php";
+include "user_navbar.php";
 require("connection.php");
 ?>
 <!DOCTYPE html>
