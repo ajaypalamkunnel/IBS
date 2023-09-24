@@ -79,9 +79,9 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
             <div class="three">
 
-                <a href="">
+                <a href="contact_admin_view.php">
                 <i class="fa-solid fa-info fa-2xl"></i>
-                    <h3>About</h3>
+                    <h3>Customer Enquiries</h3>
                 </a>
             </div>
 
