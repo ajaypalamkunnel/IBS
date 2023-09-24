@@ -12,10 +12,13 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
+            <?php
+              session_start()
+            ?>
             <a id="user">Welcome, &nbspAdmin !</a>
             <a id="logout" href="login.php" style="border-top-left-radius: 3px;" 
                     onclick="return confirm('Are you sure?')">Logout</a>
-                    <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
+                    <a id="profile" href="admin_profile.php">My Profile</a>
                     <a id="profile" href="admin_dashboard.php">Home</a>
         </div>
     </div>
