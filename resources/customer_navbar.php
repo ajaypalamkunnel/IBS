@@ -1,17 +1,17 @@
 <?php
-    // include "connect.php";
+    require("connection.php"); // Include your database connection file
 
-    // /* Avoid multiple sessions warning
-    // Check if session is set before starting a new one. */
-    // if(!isset($_SESSION)) {
-    //     session_start();
-    // }
+    /* Avoid multiple sessions warning
+    Check if session is set before starting a new one. */
+    if(!isset($_SESSION)) {
+        session_start();
+    }
 
-    // if (isset($_SESSION['loggedIn_cust_id'])) {
-    //     $sql0 = "SELECT * FROM customer WHERE cust_id=".$_SESSION['loggedIn_cust_id'];
-    //     $result = $conn->query($sql0);
-    //     $row = $result->fetch_assoc();
-    // }
+    if (isset($_SESSION['loggedIn_cust_id'])) {
+        $sql0 = "SELECT * FROM customer WHERE cust_id=".$_SESSION['loggedIn_cust_id'];
+        $result = $conn->query($sql0);
+        $row = $result->fetch_assoc();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +33,7 @@
             <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
                 &#9776;
             </a>
-            <?php
-                session_start()
-            ?>
-            <a id="user">Welcome  <?php echo $_SESSION['user_id'];?> </a>
+            <a id="user">Welcome  <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : ''; ?> </a>
             <a id="logout" href="login.php" onclick="return confirm('Are you sure?')">Logout</a>
             <a id="profile" href="net-banking/customer_navbar.php">My Profile</a>
             <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>

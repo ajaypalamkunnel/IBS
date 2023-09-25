@@ -9,7 +9,9 @@
 <body>
     <?php
      include "connection.php";
-     include "customer_navbar.php";?>
+     include "header.php";
+     include "customer_navbar.php";
+     ?>
     <div class="container">
         <?php
        
@@ -36,7 +38,7 @@
             $row = mysqli_fetch_assoc($result);
             $row2 = mysqli_fetch_assoc($result2);
             ?>
-            <h1>Customer Details</h1>
+            <h2 style="font-size: 34px;">Customer Details</h2>
             <div class="customer-details">
                 <p><strong>First Name:</strong> <?php echo $row['first_name']; ?></p>
                 <p><strong>Last Name:</strong> <?php echo $row['last_name']; ?></p>
