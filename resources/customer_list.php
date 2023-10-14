@@ -3,8 +3,6 @@ include "header.php";
 include "user_navbar.php";
 include "connection.php";
 
-
-
 $customer_sql = "SELECT c.*, a.balance FROM customer_table c
                  LEFT JOIN accounts_table a ON c.user_id = a.user_id"; // Modify the query to join tables
 
@@ -16,7 +14,7 @@ if ($result === false) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en-GB">
+<html>
 
 <head>
     <meta charset="UTF-8">
