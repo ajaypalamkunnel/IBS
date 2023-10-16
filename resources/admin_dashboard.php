@@ -46,7 +46,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
             <div class="three">
 
-                <a href="">
+                <a href="manage_customer.php">
                     <i class="fa-solid fa-user-pen fa-2xl"></i>
                     <h3>Manage customer</h3>
                 </a>
