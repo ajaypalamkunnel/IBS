@@ -36,7 +36,6 @@
             <a id="user">Welcome  <?php echo isset($_SESSION['user_id']) ? $_SESSION['user_id'] : ''; ?> </a>
             <a id="logout" href="login.php" onclick="return confirm('Are you sure?')">Logout</a>
             <a id="profile" href="customer_profile.php">My Profile</a>
-            <a id="profile" href="net-banking/customer_navbar.php">Contact Us</a>
             <a id="profile" href="net-banking/customer_navbar.php">About</a>
             <a id="profile" href="customer_dashboard.php">Home</a>
         </div>
