@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //query for login table
 
-    $sqlforlogin = "INSERT INTO `login_table` (user_id, password, role) VALUES ('$username', '$password', '$role')";
+    //$sqlforlogin = "INSERT INTO `login_table` (user_id, password, role) VALUES ('$username', '$password', '$role')";
 
     ////query for account table
     $sql2 = "INSERT INTO `accounts_table` (account_no, user_id, balance, opened_on) 
@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Insert into accounts_table
             $result2 = mysqli_query($conn, $sql2);
-            $resultlog = mysqli_query($conn, $sqlforlogin);
+            //$resultlog = mysqli_query($conn, $sqlforlogin);
 
             if ($result1 && $result2) {
                 // echo "Data inserted successfully";

@@ -1,0 +1,86 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #783cf0;
+    color: white;
+    text-align: center;
+    padding: 0.1px 0;
+    font-size: 25px;
+}
+
+/* Container for the profile information */
+.profile_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Image and contact details container */
+.img {
+    text-align: center;
+    padding: 20px;
+    line-height: 20px;
+    flex: 1;
+}
+
+/* Profile image styles */
+.img img {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact details container */
+.contact-details {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Contact details styles */
+.contact-details  {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+/* Personal details container */
+.profile-details {
+    flex: 2;
+    padding: 50px;
+    background-color: #f9f9f9; /* Add a background color to the content box */
+    border: 1px solid #ddd; /* Add a border for better separation */
+}
+
+/* Personal details styles */
+.profile-details h3 {
+    height: 40px;
+    font-size: 25px;
+    margin-bottom: 1px;
+}
+
+.profile-details p {
+    margin-bottom: 10px;
+}
+
