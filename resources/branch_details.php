@@ -1,10 +1,15 @@
+<?php
+include "connection.php";
+include "header.php";
+include "user_navbar.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Internet Banking - Branch Details</title>
 </head>
 <body>
-    <h1>Branch Details</h1>
+    <h2>Branch Details</h2>
 
     <div class="branch">
         <h2>Branch 1</h2>
@@ -27,7 +32,6 @@
         <p><strong>Email:</strong>ibs@branch3.com</p>
     </div>
 
-    <!-- Add more branches and details as needed -->
 
     <hr>
 
