@@ -43,7 +43,7 @@
             echo "<td>".$row["user_id"]."</td>";
             echo "<td>".$row["first_name"]."</td>";
             echo "<td>".$row["last_name"]."</td>";
-            echo "<td><a href='edit.php?id=".$row["user_id"]."'>Edit</a> | <a href='delete.php?id=".$row["user_id"]."'>Delete</a></td>";
+            echo "<td><a href='edit_customer.php?id=".$row["user_id"]."'>Edit</a> | <a href='delete.php?id=".$row["user_id"]."'>Delete</a></td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -51,10 +51,9 @@
         echo "No customers found.";
     }
 
-    $conn->close();
     ?>
 </font>
     <br>
-    <a href="add_customer.php">Add New Customer</a>
+    <a href="customer_add.php">Add New Customer</a>
 </body>
 </html>
