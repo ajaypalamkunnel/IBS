@@ -10,6 +10,7 @@ include "customer_navbar.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/admin_dashboard_style.css">
     <script src="https://kit.fontawesome.com/8e0f91f1ba.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <center>

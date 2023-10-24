@@ -99,6 +99,17 @@ include "customer_add_action.php";
                             <!-- Add more options as needed -->
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="accountType">Account Type</label>
+                        <select class="form-control" id="accountType" name="accountType" required>
+                            <option value="Current Account">Current Account</option>
+                            <option value="Savings Account">Savings Account</option>
+                            <option value="Fixed Deposit Account">Fixed Deposit Account</option>
+                            
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="accountNo">Account Number</label>
                         <input type="text" class="form-control" id="accountNo" name="accountNo" pattern="[0-9]{12}"

@@ -40,7 +40,7 @@ if ($result === false) {
                 <th>Branch</th>
                 <th>Join Date & time</th>
                 <th>Pin</th>
-                <th>Balance</th> <!-- New column for role -->
+                <th>Balance</th>
             </tr>
         </thead>
         <tbody>
@@ -60,7 +60,7 @@ if ($result === false) {
                     echo "<td>{$row["branch"]}</td>";
                     echo "<td>{$row["join_date"]}</td>";
                     echo "<td>{$row["pin"]}</td>";
-                    echo "<td>{$row["balance"]}</td>"; // Display the role from the login_table
+                    echo "<td>{$row["balance"]}</td>";
                     echo "</tr>";
                 }
             }

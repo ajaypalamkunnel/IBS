@@ -16,8 +16,8 @@
         <?php
        
 
-        // Replace this with the customer ID or another identifier
-        $customer_id = $_SESSION['user_id']; // Example: You may fetch the customer ID from a URL parameter or another source
+        // Replace this with the customer ID
+        $customer_id = $_SESSION['user_id']; 
 
         // Replace this with your SQL query to fetch customer details
         $sql = "SELECT first_name, last_name, contact_no, address, branch FROM customer_table WHERE user_id = '$customer_id'";
