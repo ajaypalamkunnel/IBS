@@ -93,9 +93,9 @@ include "customer_add_action.php";
                     <div class="form-group">
                         <label for="bankBranch">Bank Branch</label>
                         <select class="form-control" id="bankBranch" name="bankBranch" required>
-                            <option value="branch1">Kottayam</option>
-                            <option value="branch2">Kochi</option>
-                            <option value="branch3">Thrissur</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Kochi">Kochi</option>
+                            <option value="Thrissur">Thrissur</option>
                             <!-- Add more options as needed -->
                         </select>
                     </div>
