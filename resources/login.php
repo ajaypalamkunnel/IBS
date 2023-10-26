@@ -36,17 +36,34 @@ if (isset($_POST["login"])) {
     // Use prepared statement for SQL execution
     $sql = "SELECT * FROM login_table WHERE user_id=? AND password=? AND role=?";
     $state = mysqli_prepare($conn, $sql);
+//$sessionemail = mysqli_prepare($conn, $sqlsession);
     mysqli_stmt_bind_param($state, "sss", $n, $p, $r);
     mysqli_stmt_execute($state);
     $result = mysqli_stmt_get_result($state);
     
+    //email session
+
+   // $sqlsession =  "SELECT email_id FROM customer_table WHERE user_id=?";
+  //  $sessionemail = mysqli_prepare($conn, $sqlsession);
+   // mysqli_stmt_bind_param($sessionemail, "sss", $n, $p, $r);
+   // mysqli_stmt_execute($sessionemail);
+    //$sessionresult = mysqli_stmt_get_result($sessionemail);
+
+
+
+
+
+
     if (mysqli_num_rows($result) > 0) {
         $user_info = mysqli_fetch_assoc($result);
+      //  $session_info = mysqli_fetch_assoc($sessionresult);
+
 
         // Store user information in session variables
        // $_SESSION['username']= $user_info[''];
         $_SESSION['user_id'] = $user_info['user_id'];
         $_SESSION['role'] = $user_info['role'];
+       // $_SESSION['email_id'] = $session_info['email_id'];
                 // Fetch the account_no based on user_id
                 $sql = "SELECT account_no FROM accounts_table WHERE user_id=?";
                 $stmt = mysqli_prepare($conn, $sql);
