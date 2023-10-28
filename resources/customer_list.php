@@ -3,7 +3,7 @@ include "header.php";
 include "user_navbar.php";
 include "connection.php";
 
-$customer_sql = "SELECT c.*, a.balance FROM customer_table c
+$customer_sql = "SELECT c.*, a.balance, a.account_no FROM customer_table c
                  LEFT JOIN accounts_table a ON c.user_id = a.user_id"; // Modify the query to join tables
 
 $result = $conn->query($customer_sql);
@@ -21,13 +21,58 @@ if ($result === false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/customer_list_style.css">
     <title>Customer List</title>
+    <style>
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #263238;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #1a1a1a;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+
 </head>
 
 <body>
 
+    <div class="search-container">
+        <form method="POST" action="search_customer.php">
+            <input type="number" class="search-input" name="search" placeholder="Search by account number">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
     <table>
         <thead>
             <tr>
+                <th>Acc No</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
@@ -39,7 +84,6 @@ if ($result === false) {
                 <th>Aadhar No</th>
                 <th>Branch</th>
                 <th>Join Date & time</th>
-                <th>Pin</th>
                 <th>Balance</th>
             </tr>
         </thead>
@@ -48,6 +92,7 @@ if ($result === false) {
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
+                    echo "<td>{$row["account_no"]}</td>";
                     echo "<td>{$row["first_name"]}</td>";
                     echo "<td>{$row["last_name"]}</td>";
                     echo "<td>{$row["address"]}</td>";
@@ -59,7 +104,6 @@ if ($result === false) {
                     echo "<td>{$row["aadhaar_no"]}</td>";
                     echo "<td>{$row["branch"]}</td>";
                     echo "<td>{$row["join_date"]}</td>";
-                    echo "<td>{$row["pin"]}</td>";
                     echo "<td>{$row["balance"]}</td>";
                     echo "</tr>";
                 }

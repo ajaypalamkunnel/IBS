@@ -1,0 +1,40 @@
+/* Add your styling for the profile page here */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #e2efff; /* Light blue background for the entire profile container */
+}
+
+.profile-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff; /* White background for the information section */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif; /* Attractive font family */
+}
+
+.profile-info h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1f497d; /* Dark blue text color for the name */
+    font-weight: bold;
+}
+
+.profile-info p {
+    font-size: 18px;
+    color: #666; /* Gray text color for other details */
+}
+
+.profile-avatar {
+    flex: 1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-avatar img {
+    max-width: 200px; /* Increased size for the profile image */
+    border-radius: 50%; /* Rounded shape for the profile image */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
