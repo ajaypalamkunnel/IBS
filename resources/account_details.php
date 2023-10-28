@@ -16,12 +16,12 @@
         <?php
        
 
-        // Replace this with the customer ID or another identifier
-        $customer_id = $_SESSION['user_id']; // Example: You may fetch the customer ID from a URL parameter or another source
+        // Replace this with the customer ID
+        $customer_id = $_SESSION['user_id']; 
 
         // Replace this with your SQL query to fetch customer details
         $sql = "SELECT first_name, last_name, contact_no, address, branch FROM customer_table WHERE user_id = '$customer_id'";
-        $sql2 = "SELECT account_no, balance FROM accounts_table WHERE user_id = '$customer_id'";
+        $sql2 = "SELECT account_no, balance,account_type FROM accounts_table WHERE user_id = '$customer_id'";
 
         $result = mysqli_query($conn, $sql);
         $result2 = mysqli_query($conn, $sql2);
@@ -47,7 +47,7 @@
                 <p><strong>Address:</strong> <?php echo $row['address']; ?></p>
                 <p><strong>Balance:</strong> <?php echo $row2['balance']; ?></p>
                 <p><strong>Branch:</strong> <?php echo $row['branch']; ?></p>
-                <p><strong>Account Type:</strong> <?php echo "account type"; ?></p>
+                <p><strong>Account Type:</strong> <?php echo $row2['account_type']; ?></p>
             </div>
             <?php
         } else {

@@ -5,11 +5,11 @@ $success = 0;
 $user = 0;
 $accuser = 0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include("connection.php");
+    require("connection.php");
 
-    $currentTimestamp = time(); // Gets the current UNIX timestamp
+    $currentTimestamp = time(); // Gets the current timestamp
     $phpFormattedTimestamp = date("Y-m-d H:i:s", $currentTimestamp); // Formats the timestamp in "YYYY-MM-DD HH:MM:SS" format
-
+    $accstat='Active';
     $username = $_POST['username'];
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $panCardNo = $_POST['Pancard'];
     $aadhaarNo = $_POST['aadhar'];
     $joinDate = $phpFormattedTimestamp;
+    $acctyp = $_POST['accountType']; //acc table
     $accNo = $_POST['accountNo']; //acc table
     $balance = $_POST['openingBalance']; //acc table
     $address = $_POST['address'];
@@ -65,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sqlforlogin = "INSERT INTO `login_table` (user_id, password, role) VALUES ('$username', '$password', '$role')";
 
     ////query for account table
-    $sql2 = "INSERT INTO `accounts_table` (account_no, user_id, balance, opened_on) 
-   VALUES ('$accNo', '$username', $balance, '$joinDate')";
+    $sql2 = "INSERT INTO `accounts_table` (account_no, user_id,account_type,account_status, balance, opened_on) 
+   VALUES ('$accNo', '$username','$acctyp','$accstat',$balance, '$joinDate')";
 
 
 

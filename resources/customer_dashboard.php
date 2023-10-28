@@ -10,6 +10,7 @@ include "customer_navbar.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/admin_dashboard_style.css">
     <script src="https://kit.fontawesome.com/8e0f91f1ba.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <center>
@@ -52,7 +53,7 @@ Please remember to keep your privacy.</P>
 
             <div class="one">
 
-                <a href="">
+                <a href="transactions.php">
                 <i class="fa-solid fa-clock-rotate-left fa-2xl"></i>
                     <h3>My Transaction</h3>
                 </a>

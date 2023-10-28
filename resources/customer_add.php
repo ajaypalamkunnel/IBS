@@ -93,12 +93,23 @@ include "customer_add_action.php";
                     <div class="form-group">
                         <label for="bankBranch">Bank Branch</label>
                         <select class="form-control" id="bankBranch" name="bankBranch" required>
-                            <option value="branch1">Kottayam</option>
-                            <option value="branch2">Kochi</option>
-                            <option value="branch3">Thrissur</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Kochi">Kochi</option>
+                            <option value="Thrissur">Thrissur</option>
                             <!-- Add more options as needed -->
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="accountType">Account Type</label>
+                        <select class="form-control" id="accountType" name="accountType" required>
+                            <option value="Current Account">Current Account</option>
+                            <option value="Savings Account">Savings Account</option>
+                            <option value="Fixed Deposit Account">Fixed Deposit Account</option>
+                            
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="accountNo">Account Number</label>
                         <input type="text" class="form-control" id="accountNo" name="accountNo" pattern="[0-9]{12}"

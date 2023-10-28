@@ -32,7 +32,6 @@ include "user_navbar.php";
         <p><strong>Email:</strong>ibs@branch3.com</p>
     </div>
 
-    <!-- Add more branches and details as needed -->
 
     <hr>
 
