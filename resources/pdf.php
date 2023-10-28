@@ -19,16 +19,60 @@ $sql = "SELECT * FROM transaction_table WHERE from_account_no = $session_account
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    // Create an HTML table to display the data
-    $html = '<table border="1">
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Transaction Type</th>
-                    <th>From Account No</th>
-                    <th>To Account No</th>
-                    <th>Date Issued</th>
-                    <th>Amount</th>
-                </tr>';
+    // Create an HTML table to display the data with styling
+    $html = '
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                text-align: center;
+            }
+            .header {
+                background-color: #263238;
+                color: #fff;
+                padding: 10px;
+            }
+            .logo {
+                width: 150px;
+                height: auto;
+            }
+            .title {
+                font-size: 24px;
+                margin: 20px 0;
+            }
+            .subtitle {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #263238;
+                color: #fff;
+            }
+        </style>
+        <div class="header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h1 class="title">IBS Banking PVT LTD</h1>
+            <h2 class="subtitle">Transaction statements</h2>
+        </div>
+        <table>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Transaction Type</th>
+                <th>From Account No</th>
+                <th>To Account No</th>
+                <th>Date Issued</th>
+                <th>Amount</th>
+            </tr>';
 
     while ($row = mysqli_fetch_assoc($result)) {
         $html .= '<tr>';
@@ -47,8 +91,9 @@ if ($result) {
     $mpdf->WriteHTML($html);
 
     // Output the PDF as a download
-    $mpdf->Output('ibs.pdf', 'D');
+    $mpdf->Output('IBS_Statement.pdf', 'D');
 } else {
     echo "Query execution failed: " . mysqli_error($conn);
 }
+
 ?>
