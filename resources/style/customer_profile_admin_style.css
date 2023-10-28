@@ -38,3 +38,51 @@
     border-radius: 50%; /* Rounded shape for the profile image */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
+
+.download-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    background-color: #555;
+}
+
+/* ... (previous CSS code) ... */
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(74, 40, 40, 0.2);
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ... (button styling and other CSS) ... */

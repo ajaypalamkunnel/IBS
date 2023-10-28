@@ -54,10 +54,49 @@ $result = $conn->query($search_sql);
                 echo "<p>PAN Card No: {$row["pan_card_no"]}</p>";
                 echo "<p>Aadhar No: {$row["aadhaar_no"]}</p>";
                 echo "<p>Balance: {$row["balance"]}</p>";
+                
             }
             ?>
+            <input class="download-button submit-button" name="Report" type="button" value="Report" onclick="openPopup()">
+            
+        </div>
+       
+    </div>
+
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2>Generate Report</h2>
+            <form id="reportForm" action="pdf.php">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required>
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate" required>
+                <input type="submit" class="download-button submit-button" value="Download">
+            </form>
         </div>
     </div>
-</body>
 
-</html>
+    <script>
+        function openPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+
+        function generateReport() {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+
+            // Use JavaScript to create a URL for the report generation
+            var reportUrl = "generate_report.php?startDate=" + startDate + "&endDate=" + endDate;
+
+            // Redirect to the report generation script
+            window.location.href = reportUrl;
+        }
+    </script>
+</body>
