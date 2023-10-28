@@ -15,7 +15,15 @@ $mpdf = new \Mpdf\Mpdf(['logger' => $logger]);
 require("connection.php");
 include("customer_navbar.php");
 $session_account_no = $_SESSION['account_no'];
-$sql = "SELECT * FROM transaction_table WHERE from_account_no = $session_account_no";
+
+// Convert startDate and endDate to match the date format in the database
+$startDate = date('Y-m-d H:i:s', strtotime($_POST['startDate']));
+$endDate = date('Y-m-d H:i:s', strtotime($_POST['endDate']));
+
+$sql = "SELECT * FROM transaction_table 
+WHERE from_account_no = $session_account_no
+AND date_issued BETWEEN '$startDate' AND '$endDate'";
+
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
@@ -95,5 +103,4 @@ if ($result) {
 } else {
     echo "Query execution failed: " . mysqli_error($conn);
 }
-
 ?>
