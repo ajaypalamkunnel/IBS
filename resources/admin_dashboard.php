@@ -69,7 +69,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
 
 
             <div class="two">
-                <a href="">
+                <a href="branch_details.php">
                 <i class="fa-solid fa-building-columns fa-2xl"></i>
                     <h3>Branch Details/ Report Generation</h3>
                 </a>

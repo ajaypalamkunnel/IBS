@@ -46,10 +46,10 @@
         </div>
             <div class="profile-details">
                 <h2>Personal Information</h2>
-                <p><strong><form>First Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['first_name']; ?>"></form></p>
-                <p><strong><form>Last Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['last_name']; ?>"></form></p>
-                <p><b><form>Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Admin"></form></p>
-                <p><b><form>Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Active"></form></p>
+                <p><strong><form>First Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['first_name']; ?>"readonly></form></p>
+                <p><strong><form>Last Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['last_name']; ?>"readonly></form></p>
+                <p><b><form>Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Admin"readonly></form></p>
+                <p><b><form>Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Active"readonly></form></p>
             </div>
         </div>
             <?php
@@ -60,8 +60,6 @@
         // Close the database connection
         mysqli_close($conn);
         ?>
-   <footer>
-        <p>&copy; <?php //echo date('Y'); ?> IBS. All rights reserved.</p>
-    </footer>
+
 </body>
 </html>
