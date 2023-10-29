@@ -54,9 +54,12 @@
             echo "<p>No customer details found</p>";
         }
 
-        // Close the database connection
+
        
         ?>
     </div>
 </body>
 </html>
+<?php
+include "about.php";
+?>

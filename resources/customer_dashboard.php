@@ -97,3 +97,7 @@ Please remember to keep your privacy.</P>
         </div>
 </body>
 </html>
+<?php
+include "about.php";
+?>
+
