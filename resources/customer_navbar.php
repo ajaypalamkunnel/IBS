@@ -7,11 +7,6 @@
         session_start();
     }
 
-    if (isset($_SESSION['loggedIn_cust_id'])) {
-        $sql0 = "SELECT * FROM customer WHERE cust_id=".$_SESSION['loggedIn_cust_id'];
-        $result = $conn->query($sql0);
-        $row = $result->fetch_assoc();
-    }
 ?>
 
 <!DOCTYPE html>
