@@ -104,3 +104,6 @@ include "customer_navbar.php";
     </div>
 </body>
 </html>
+<?php
+include "about.php";
+?>
