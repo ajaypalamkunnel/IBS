@@ -125,6 +125,7 @@ include "customer_add_action.php";
                         <div class="form-group col-md-6">
                             <label for="pin">PIN</label>
                             <input type="password" class="form-control" id="pin" name="pin" required>
+                            <small class="form-text text-muted">Enter a valid PIN of size not less than 4.</small>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="username">Username</label>
