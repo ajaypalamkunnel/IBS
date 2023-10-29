@@ -21,7 +21,7 @@ include "customer_add_action.php";
             var dobInput = document.getElementById("dob");
             dobInput.max = maxDate.toISOString().split("T")[0];
         }
-        
+
     </script>
 </head>
 
@@ -32,7 +32,7 @@ include "customer_add_action.php";
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="text-center mb-4">Fill the Form to Add a customer</h2>
-                <form action="customer_add_action.php" method="post">
+                <form action="customer_add_action.php" method="post" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="firstName">First Name</label>
@@ -106,7 +106,7 @@ include "customer_add_action.php";
                             <option value="Current Account">Current Account</option>
                             <option value="Savings Account">Savings Account</option>
                             <option value="Fixed Deposit Account">Fixed Deposit Account</option>
-                            
+
                         </select>
                     </div>
 
@@ -116,6 +116,15 @@ include "customer_add_action.php";
                             required>
                         <small class="form-text text-muted">Enter a valid 12-digit account number.</small>
                     </div>
+
+                   
+
+                    <div class="form-group">
+                        <label for="userPhotoe">Account Image</label>
+                        <input type="file" name="userPhoto" id="userPhoto">
+                        <small class="form-text text-muted">Upload an image for the account (optional).</small>
+                    </div>
+
 
                     <div class="form-group">
                         <label for="openingBalance">Opening Balance</label>

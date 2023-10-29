@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $stmt = $conn->prepare($query);
 
 if (!$stmt) {
-$errors[] = "Error preparing the statement.";
+$errors[] = "27Error preparing the statement.";
 } else {
 $stmt->bind_param("ss", $from_account_no, $_SESSION['user_id']);
 $stmt->execute();
@@ -59,7 +59,7 @@ $stmt->close();
     $stmt = $conn->prepare($query);
 
     if (!$stmt) {
-        $errors[] = "Error preparing the statement.";
+        $errors[] = "62Error preparing the statement.";
     } else {
         $stmt->bind_param("ss", $to_account_no, $ifsc);
         $stmt->execute();
@@ -92,7 +92,7 @@ $stmt->close();
         $stmt = $conn->prepare($sql);
 
         if (!$stmt) {
-            $errors[] = "Error preparing the statement.";
+            $errors[] = "95Error preparing the statement.";
         } else {
             $stmt->bind_param("ds", $amount, $from_account_no);
             $stmt->execute();
@@ -104,7 +104,7 @@ $stmt->close();
                 $stmt = $conn->prepare($sql);
 
                 if (!$stmt) {
-                    $errors[] = "Error preparing the statement.";
+                    $errors[] = "107Error preparing the statement.";
                 } else {
                     $stmt->bind_param("ds", $amount, $to_account_no);
                     $stmt->execute();
@@ -140,7 +140,7 @@ $stmt->close();
     } else {
         $conn->rollback(); // Rollback in case of an error
         $conn->autocommit(TRUE); // Re-enable autocommit
-        $errors[] = "Error preparing the statement: " . $conn->error;
+        $errors[] = "143Error preparing the statement: " . $conn->error;
     }
 
                     } else {

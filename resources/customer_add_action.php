@@ -30,8 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pin = $_POST['pin'];
     $role = "customer";
 
+    $photo = '';  // Initialize the $photo variable
+
+    if ($_FILES['userPhoto']['error'] == UPLOAD_ERR_OK) {
+        $temp_name = $_FILES['userPhoto']['tmp_name'];
+        $photo_name = $_FILES['userPhoto']['name'];
+        $upload_path = 'uploads/' . $photo_name;  // Specify the directory to store uploaded images
+        move_uploaded_file($temp_name, $upload_path);
+
+        // Set the $photo variable to the file path in the database
+        $photo = $upload_path;
+    }
+
     //query for customer table 
-    $sql1 = "INSERT INTO `customer_table` (user_id, first_name, last_name, contact_no, email_id, gender, dob, pan_card_no, aadhaar_no, join_date, address, pin, branch) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql1 = "INSERT INTO `customer_table` (user_id, first_name, last_name, contact_no, email_id, gender, dob, pan_card_no, aadhaar_no, join_date, address, pin, branch, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $hashedPin = password_hash($pin, PASSWORD_DEFAULT);
@@ -138,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt3 = mysqli_prepare($conn, $sqlforlogin);
 
             // Bind parameters
-            mysqli_stmt_bind_param($stmt1, "sssssssssssss", $username, $firstName, $lastName, $contactNo, $email, $gender, $dob, $panCardNo, $aadhaarNo, $joinDate, $address, $pin, $branch);
+            mysqli_stmt_bind_param($stmt1, "ssssssssssssss", $username, $firstName, $lastName, $contactNo, $email, $gender, $dob, $panCardNo, $aadhaarNo, $joinDate, $address, $pin, $branch, $photo);
             mysqli_stmt_bind_param($stmt2, "ssssds", $accNo, $username, $acctyp, $accstat, $balance, $joinDate);
             mysqli_stmt_bind_param($stmt3, "sss", $username, $hashedPassword, $role);
 
