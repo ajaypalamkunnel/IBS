@@ -6,7 +6,7 @@ include "customer_navbar.php";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Bank</title>
+    <title>Contact IBS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -81,7 +81,6 @@ include "customer_navbar.php";
             $displayMessage = "<h2>Thank you, $name!</h2>";
             $displayMessage .= "<p>Your message has been received.</p> <p><strong>Email:</strong> $email</p><p><strong>Message:</strong> $message</p>";
 
-            // You can add additional processing here, such as sending an email to the bank's support team.
         } else {
             // Display the contact form if it's not a POST request.
             $displayMessage = "<h2>Contact Bank</h2>";
