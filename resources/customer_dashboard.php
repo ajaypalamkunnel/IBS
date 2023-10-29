@@ -40,7 +40,7 @@ Please remember to keep your privacy.</P>
 
             <div class="three">
 
-                <a href="">
+                <a href="transaction.php">
                 <i class="fa-solid fa-bell fa-2xl"></i>
                     <h3>Transaction</h3>
                 </a>
