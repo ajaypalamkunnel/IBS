@@ -13,18 +13,20 @@
             background-color:#263238 ;
             margin: 0;
             padding: 0;
-            line-height: 1.0;
+            line-height: 0.6;
         }
 
         h5 {
         font-family: OpenSans-Light;
         color: white;
-        margin-top: calc((1.5rem - 2rem) + 2.5rem);
+        margin-top: 20px;
         margin-bottom: 10px;
+       
         }
 
         .navigation {
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom:0px;
         }
 
 
@@ -45,7 +47,8 @@
 
 <body>
     <div class="col">
-    <p><h5>About IBS</h5></p>
+    <p><h5 style="color: #263238;">.</h5></p>
+
     <p>Welcome to IBS Online Banking - Your Simple, Secure, and Smart Banking Solution!</p>
 
 <p>IBS, short for Internet Banking System, brings the bank to your fingertips. We understand the need for banking that fits your fast-paced lifestyle, and that's exactly what we provide.</p>
@@ -61,6 +64,7 @@ At IBS, we are committed to making your banking experience smooth and stress-fre
         <a href="about.php">About Us</a>
         <a href="contact.php">Contact</a>
     </div>
+    <p><h5 style="color: #263238;">.</h5></p>
     </div>
 </body>
 
