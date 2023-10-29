@@ -53,7 +53,7 @@ Please remember to keep your privacy.</P>
 
             <div class="one">
 
-                <a href="">
+                <a href="transaction_history.php">
                 <i class="fa-solid fa-clock-rotate-left fa-2xl"></i>
                     <h3>My Transaction</h3>
                 </a>
