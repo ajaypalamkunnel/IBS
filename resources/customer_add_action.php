@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $currentTimestamp = time(); // Gets the current timestamp
     $phpFormattedTimestamp = date("Y-m-d H:i:s", $currentTimestamp); // Formats the timestamp in "YYYY-MM-DD HH:MM:SS" format
-    $accstat='Active';
+    $accstat = 'Active';
     $username = $_POST['username'];
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -31,52 +31,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $role = "customer";
 
     //query for customer table 
-    $sql1 = "INSERT INTO `customer_table` (
-    user_id, 
-    first_name, 
-    last_name, 
-    contact_no, 
-    email_id, 
-    gender, 
-    dob, 
-    pan_card_no, 
-    aadhaar_no, 
-    join_date, 
-    address, 
-    pin,
-    branch
-) VALUES (
-    '$username', 
-    '$firstName', 
-    '$lastName', 
-    '$contactNo', 
-    '$email', 
-    '$gender', 
-    '$dob', 
-    '$panCardNo', 
-    '$aadhaarNo', 
-    '$joinDate', 
-    '$address', 
-    '$pin',
-    '$branch'
-)";
+    $sql1 = "INSERT INTO `customer_table` (user_id, first_name, last_name, contact_no, email_id, gender, dob, pan_card_no, aadhaar_no, join_date, address, pin, branch) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPin = password_hash($pin, PASSWORD_DEFAULT);
     //query for login table
+    $sqlforlogin = "INSERT INTO `login_table` (user_id, password, role) VALUES (?, ?, ?)";
 
-    $sqlforlogin = "INSERT INTO `login_table` (user_id, password, role) VALUES ('$username', '$password', '$role')";
 
-    ////query for account table
-    $sql2 = "INSERT INTO `accounts_table` (account_no, user_id,account_type,account_status, balance, opened_on) 
-   VALUES ('$accNo', '$username','$acctyp','$accstat',$balance, '$joinDate')";
+    //query for account table
+    $sql2 = "INSERT INTO `accounts_table` (account_no, user_id, account_type, account_status, balance, opened_on) VALUES (?, ?, ?, ?, ?, ?)";
+
 
 
 
     $checkUsernameQuery = "SELECT COUNT(*) FROM `customer_table` WHERE user_id = '$username'";
     $usernameResult = mysqli_query($conn, $checkUsernameQuery);
     $usernameCount = mysqli_fetch_row($usernameResult)[0];
+
+
+
     // Get the Aadhar number from the form
     $aadhar = $_POST['aadhar'];
-
     // Regular expression pattern for a 12-digit   Aadhar number
     $aadharPattern = '/^[0-9]{12}$/';
 
@@ -88,9 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid Aadhar number. Please enter a valid 12-digit Aadhar number.";
         // You can also redirect back to the form or take other actions as needed.
     }
+
+
+
     // Get the mobile number from the form
     $mobileNumber = $_POST['phone'];
-
     // Regular expression pattern for a 10-digit mobile number
     $mobilePattern = '/^[0-9]{10}$/';
 
@@ -102,6 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid mobile number. Please enter a valid 10-digit mobile number.";
         // You can also redirect back to the form or take other actions as needed.
     }
+
+
+
     // Get the PAN card number from the form
     $panCardNumber = $_POST['Pancard'];
 
@@ -116,6 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid PAN card number. Please enter a valid PAN card number (e.g., ABCDE1234F).";
         // You can also redirect back to the form or take other actions as needed.
     }
+
+
+
     // Get the account number from the form
     $accountNumber = $_POST['accountNo'];
 
@@ -147,15 +131,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $accuser = 1;
             // echo "Account number already exists.";
         } else {
-            // Insert into customer_table
-            $result1 = mysqli_query($conn, $sql1);
 
-            // Insert into accounts_table
-            $result2 = mysqli_query($conn, $sql2);
-            $resultlog = mysqli_query($conn, $sqlforlogin);
+            // Create prepared statements
+            $stmt1 = mysqli_prepare($conn, $sql1);
+            $stmt2 = mysqli_prepare($conn, $sql2);
+            $stmt3 = mysqli_prepare($conn, $sqlforlogin);
 
-            if ($result1 && $result2) {
-                // echo "Data inserted successfully";
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt1, "sssssssssssss", $username, $firstName, $lastName, $contactNo, $email, $gender, $dob, $panCardNo, $aadhaarNo, $joinDate, $address, $pin, $branch);
+            mysqli_stmt_bind_param($stmt2, "ssssds", $accNo, $username, $acctyp, $accstat, $balance, $joinDate);
+            mysqli_stmt_bind_param($stmt3, "sss", $username, $hashedPassword, $role);
+
+            // Execute the statements
+            $result1 = mysqli_stmt_execute($stmt1);
+            $result2 = mysqli_stmt_execute($stmt2);
+            $result3 = mysqli_stmt_execute($stmt3);
+
+            if ($result1 && $result2 && $result3) {
                 $success = 1;
             } else {
                 die(mysqli_error($conn));
