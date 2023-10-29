@@ -40,9 +40,9 @@ Please remember to keep your privacy.</P>
 
             <div class="three">
 
-                <a href="bill_payment_dashboard.php">
+                <a href="transaction.php">
                 <i class="fa-solid fa-bell fa-2xl"></i>
-                    <h3>Bill Payment</h3>
+                    <h3>Tap & Transact</h3>
                 </a>
             </div>
 

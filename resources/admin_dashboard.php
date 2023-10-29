@@ -38,7 +38,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="two">
                 <a href="customer_list.php">
                     <i class="fa-solid fa-users fa-2xl"></i>
-                    <h3>List customers</h3>
+                    <h3>List customers/Search</h3>
                 </a>
             </div>
 
@@ -71,7 +71,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="two">
                 <a href="branch_details.php">
                 <i class="fa-solid fa-building-columns fa-2xl"></i>
-                    <h3>Branch Details</h3>
+                    <h3>Branch Details/ Report Generation</h3>
                 </a>
             </div>
 
