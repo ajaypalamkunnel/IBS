@@ -194,7 +194,7 @@ function generateTransactionId() {
 <body>
     <form id="transferForm" class="fund_transfer_form" method="post" onsubmit="return validateForm()">
         <font Color="Purple">
-            <center><h2 style="font-size:40px;">Transaction At Your Ease</h2></center>
+            <center><h2 style="font-size:40px;">IBS Banking Transaction</h2></center>
             <div class="form-group">
                 <label for="from_account_no">From Account Number:</label>
                 <input type="text" id="from_account_no" name="from_account_no" required value="<?php echo isset($_SESSION['account_no']) ? $_SESSION['account_no'] : ''; ?>">
