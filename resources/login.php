@@ -49,7 +49,6 @@ if (isset($_POST["login"])) {
         
         // }
 
-
         // Use password_verify to check if the entered password matches the stored hash
         if (password_verify($p, $hashedPassword)) {
             // Password is correct
