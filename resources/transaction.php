@@ -281,3 +281,6 @@ function generateTransactionId() {
     </script>
 </body>
 </html>
+<?php
+include "about.php";
+?>
