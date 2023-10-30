@@ -36,6 +36,17 @@
             color: #007bff;
         }
 
+
+        footer {
+             margin-top: auto;
+              background-color: #263238;
+                padding: 20px;
+        }
+
+        .footer-content {
+           text-align: center;
+        }
+
         /* Set styles for smaller screens */
         @media (max-width: 576px) {
             body {
@@ -63,9 +74,15 @@ At IBS, we are committed to making your banking experience smooth and stress-fre
       
         <a href="about.php">About Us</a>
         <a href="contact.php">Contact</a>
-    </div>
-    <p><h5 style="color: #263238;">.</h5></p>
-    </div>
+  
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <?php echo date("Y"); ?> Internet Banking System. All rights reserved.</p>
+            
+        </div>
+    </footer>
+
 </body>
 
 </html>

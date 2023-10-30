@@ -65,6 +65,7 @@ mysqli_close($conn);
     <p><center>
     <button type="submit">View Balance</button></center></p>
 </form>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($balance !== "N/A") {
