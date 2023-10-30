@@ -18,7 +18,7 @@
         $customer_id = $_SESSION['user_id']; // Example: You may fetch the customer ID from a URL parameter or another source
 
         // Replace this with your SQL query to fetch customer details
-        $sql = "SELECT user_id,first_name,last_name,email_id,contact_no FROM admin_table WHERE user_id = '$customer_id'";
+        $sql = "SELECT user_id,first_name,last_name,email_id,contact_no FROM staff_administrator_table WHERE user_id = '$customer_id'";
         $result = mysqli_query($conn, $sql);
 
         // Check if the query executed successfully

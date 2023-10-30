@@ -89,7 +89,7 @@ function convertDateFormat($inputDate) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>" . $row["transaction_id"] . "</td>";
-                            echo "<td>" . $row["transcation_type"] . "</td>";
+                            echo "<td>" . $row["transaction_type"] . "</td>";
                             echo "<td>" . $row["from_account_no"] . "</td>";
                             echo "<td>" . $row["to_account_no"] . "</td>";
                             echo "<td>" . $row["date_issued"] . "</td>";

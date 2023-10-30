@@ -86,7 +86,7 @@ if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $html .= '<tr>';
         $html .= '<td>' . $row['transaction_id'] . '</td>';
-        $html .= '<td>' . $row['transcation_type'] . '</td>';
+        $html .= '<td>' . $row['transaction_type'] . '</td>';
         $html .= '<td>' . $row['from_account_no'] . '</td>';
         $html .= '<td>' . $row['to_account_no'] . '</td>';
         $html .= '<td>' . $row['date_issued'] . '</td>';

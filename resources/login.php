@@ -49,6 +49,7 @@
             $hashedPassword = $user_info['password'];
 
             if ($r == 'Admin' && $p == $pass) {
+                $_SESSION['user_id'] = $user_info['user_id'];
                 $_SESSION['role'] = $user_info['role'];
                 header("Location: admin_dashboard.php");
                 exit();
