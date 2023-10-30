@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $branch = $_POST['bankBranch'];
     $password = $_POST['password'];
     $pin = $_POST['pin'];
-    $role = "customer";
+    $role = "Customer";
 
     $photo = '';  // Initialize the $photo variable
 
@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="text-center ">
         <a href="customer_add.php" class="btn btn-outline-success">Try again</a>
     </div>
-        '; // Closing div added
+        '; 
     }
 
     if ($accuser) {
@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<div class="alert alert-success d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
-         Signup successfully
+         Signup successfull
         </div>
         </div>
         <div class="text-center ">

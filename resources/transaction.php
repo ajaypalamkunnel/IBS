@@ -24,7 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $stmt = $conn->prepare($query);
 
 if (!$stmt) {
-$errors[] = "27Error preparing the statement.";
+
+$errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
 } else {
 $stmt->bind_param("ss", $from_account_no, $_SESSION['user_id']);
 $stmt->execute();
@@ -45,8 +47,8 @@ if ($result->num_rows !== 1) {
        // Check if sender has insufficient balance
        if ($sender_balance < $amount) {
            $errors[] = "Insufficient balance in your account.";
-       } else if ($account_type !== "Current Account") {
-           $errors[] = "Transactions are allowed only from Current Accounts.";
+       } else if ($account_type == "Fixed Deposit Account") {
+           $errors[] = "Transaction not possible! Your are trying to perform transaction from a Fixed Deposit account.";
        }
    }
 }
@@ -59,7 +61,9 @@ $stmt->close();
     $stmt = $conn->prepare($query);
 
     if (!$stmt) {
-        $errors[] = "62Error preparing the statement.";
+
+        $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
     } else {
         $stmt->bind_param("ss", $to_account_no, $ifsc);
         $stmt->execute();
@@ -92,7 +96,9 @@ $stmt->close();
         $stmt = $conn->prepare($sql);
 
         if (!$stmt) {
-            $errors[] = "95Error preparing the statement.";
+
+            $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
         } else {
             $stmt->bind_param("ds", $amount, $from_account_no);
             $stmt->execute();
@@ -104,7 +110,9 @@ $stmt->close();
                 $stmt = $conn->prepare($sql);
 
                 if (!$stmt) {
-                    $errors[] = "107Error preparing the statement.";
+
+                    $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
                 } else {
                     $stmt->bind_param("ds", $amount, $to_account_no);
                     $stmt->execute();
@@ -118,7 +126,7 @@ $stmt->close();
                         $date_issued = date("Y-m-d H:i:s");
 
                            // Insert transaction entry into transaction_table
-    $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Fund transfer', ?, ?, ?, ?)";
+    $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Inter-Bank transaction', ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
@@ -134,24 +142,26 @@ $stmt->close();
         } else {
             $conn->rollback(); // Rollback in case of an error
             $conn->autocommit(TRUE); // Re-enable autocommit
-            $errors[] = "Error adding transaction entry: " . $stmt->error;
+            $errors[] = "Bank server down! Please try after sometime. " . $stmt->error; //Error preparing the statement.
         }
         $stmt->close();
     } else {
         $conn->rollback(); // Rollback in case of an error
         $conn->autocommit(TRUE); // Re-enable autocommit
-        $errors[] = "143Error preparing the statement: " . $conn->error;
+
+        $errors[] = "Bank server down! Please try after sometime. " . $conn->error; //Error preparing the statement.
+
     }
 
                     } else {
                         $conn->rollback(); // Rollback in case of an error
                         $conn->autocommit(TRUE); // Re-enable autocommit
-                        $errors[] = "Error updating receiver's account.";
+                        $errors[] = "Bank server down! Please try after sometime."; //Error updating receiver's account.
                     }
                 }
             } else {
                 $conn->autocommit(TRUE); // Re-enable autocommit
-                $errors[] = "Error updating sender's account.";
+                $errors[] = "Bank server down! Please try after sometime."; //Error updating sender's account.
             }
         }
     }
@@ -281,3 +291,6 @@ function generateTransactionId() {
     </script>
 </body>
 </html>
+<?php
+include "about.php";
+?>
