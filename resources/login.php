@@ -27,10 +27,14 @@
     </div>
 
     <?php
-    session_start(); // Start the session
-    require("connection.php");
+// Disable error reporting and display errors in the frontend
+error_reporting(0); // Disable error reporting
+ini_set('display_errors', 0); // Do not display errors to the browser
 
-    if (isset($_POST["login"])) {
+session_start(); // Start the session
+require("connection.php");
+
+if (isset($_POST["login"])) {
         $n = $_POST['username']; 
         $p = $_POST['password']; 
         $r = $_POST['role']; 
@@ -62,12 +66,13 @@
             // Store user information in session variables
             $_SESSION['user_id'] = $user_info['user_id'];
             $_SESSION['role'] = $user_info['role'];
+            $_SESSION['$access_id'] = $access_id;
 
-            // Insert user_id, access_id, and login_time into access_table
-            $insert_sql = "INSERT INTO `access_table` (access_id, user_id, login_time) VALUES (?, ?, ?)";
-            $stmtt = mysqli_prepare($conn, $insert_sql);
-            mysqli_stmt_bind_param($stmtt, "sss", $access_id, $_SESSION['user_id'], $login_time);
-            mysqli_stmt_execute($stmtt);
+    // Insert user_id, access_id, and login_time into access_table
+    $insert_sql = "INSERT INTO `access_table` (access_id, user_id, login_time) VALUES (?, ?, ?)";
+    $stmtt = mysqli_prepare($conn, $insert_sql);
+    mysqli_stmt_bind_param($stmtt, "sss", $access_id, $_SESSION['user_id'], $login_time);
+    mysqli_stmt_execute($stmtt);
 
             // Fetch the account_no based on user_id
             $sql = "SELECT account_no FROM accounts_table WHERE user_id=?";
@@ -97,6 +102,7 @@
 
         mysqli_stmt_close($state);
         mysqli_stmt_close($stmtt);
+
         
     }
     ?>
