@@ -45,7 +45,7 @@ if ($result->num_rows !== 1) {
        // Check if sender has insufficient balance
        if ($sender_balance < $amount) {
            $errors[] = "Insufficient balance in your account.";
-       } else if ($account_type !== "Current Account") {
+       } else if ($account_type == "Fixed Deposit Account") {
            $errors[] = "Transaction not possible! Your are trying to perform transaction from a Fixed Deposit account.";
        }
    }
@@ -118,7 +118,7 @@ $stmt->close();
                         $date_issued = date("Y-m-d H:i:s");
 
                            // Insert transaction entry into transaction_table
-    $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Fund transfer', ?, ?, ?, ?)";
+    $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Inter-Bank transaction', ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
