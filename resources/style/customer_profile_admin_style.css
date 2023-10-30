@@ -1,0 +1,88 @@
+/* Add your styling for the profile page here */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #e2efff; /* Light blue background for the entire profile container */
+}
+
+.profile-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff; /* White background for the information section */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif; /* Attractive font family */
+}
+
+.profile-info h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1f497d; /* Dark blue text color for the name */
+    font-weight: bold;
+}
+
+.profile-info p {
+    font-size: 18px;
+    color: #666; /* Gray text color for other details */
+}
+
+.profile-avatar {
+    flex: 1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-avatar img {
+    max-width: 200px; /* Increased size for the profile image */
+    border-radius: 50%; /* Rounded shape for the profile image */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    background-color: #555;
+}
+
+/* ... (previous CSS code) ... */
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(74, 40, 40, 0.2);
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ... (button styling and other CSS) ... */

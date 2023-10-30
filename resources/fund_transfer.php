@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id'])) {
         $stmt = $conn->prepare($query);
 
         if (!$stmt) {
+
             $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
         } else {
             $stmt->bind_param("s", $from_account_no);
@@ -82,7 +83,9 @@ if (empty($errors)) {
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
+
         $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
     } else {
         $stmt->bind_param("ds", $amount, $from_account_no);
         $stmt->execute();
@@ -94,7 +97,9 @@ if (empty($errors)) {
             $stmt = $conn->prepare($sql);
 
             if (!$stmt) {
+
                 $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
             } else {
                 $stmt->bind_param("ds", $amount, $to_account_no);
                 $stmt->execute();
@@ -134,7 +139,9 @@ if (empty($errors)) {
                     } else {
                         $conn->rollback(); // Rollback in case of an error
                         $conn->autocommit(TRUE); // Re-enable autocommit
+
                         $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+
                     }
                 } else {
                     $conn->rollback(); // Rollback in case of an error
