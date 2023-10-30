@@ -200,7 +200,7 @@ function generateTransactionId() {
             <center><h2 style="font-size:40px;">Fund Transfer</h2></center>
             <div class="form-group">
                 <label for="from_account_no">From Account Number:</label>
-                <input type="text" id="from_account_no" name="from_account_no" required value="<?php echo isset($_SESSION['account_no']) ? $_SESSION['account_no'] : ''; ?>">
+                <input type="text" id="from_account_no" name="from_account_no" required>
             </div>
 
             <div class="form-group">

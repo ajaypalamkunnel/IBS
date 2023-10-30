@@ -43,7 +43,7 @@
             echo "<td>".$row["user_id"]."</td>";
             echo "<td>".$row["first_name"]."</td>";
             echo "<td>".$row["last_name"]."</td>";
-            echo "<td><a href='edit_customer.php?id=".$row["user_id"]."'>Edit</a> | <a href='delete.php?id=".$row["user_id"]."'>Delete</a></td>";
+            echo "<td><a href='edit_customer.php?id=".$row["user_id"]."'>Edit</a> | <a href='delete.php?id=".$row["user_id"]."'>Delete</a> | <a href='add_additional_account.php.php?id=".$row["user_id"]."'>Add New Account</a></td>";
             echo "</tr>";
         }
         echo "</table>";
