@@ -18,7 +18,10 @@ require("connection.php");
         <input type="submit" value="Add Notification">
         <input type="reset" value="Reset">
     </form>
-
+    
+    <footer style="background-color: #263238; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+    &copy; 2023 Internet Banking System. All rights reserved.
+</footer>
     <?php
     $successMessage = "";
 
@@ -108,6 +111,7 @@ require("connection.php");
             echo "<p>Notification file not found.</p>";
         }
         ?>
+        <br><br><br><br><br><br>
     </div>
 
     <script>

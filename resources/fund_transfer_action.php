@@ -25,7 +25,7 @@ unset($_SESSION['transaction_id'], $_SESSION['amount'], $_SESSION['from_account_
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction Successful</title>
+    <title>Fund Transfer Successfull</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,7 +49,7 @@ unset($_SESSION['transaction_id'], $_SESSION['amount'], $_SESSION['from_account_
 </head>
 <body>
 <div class="success-message"><center>
-        <h2>Transaction Successful!</h2>
+        <h2>Fund Transfer Successfull</h2>
         <p>Your fund transfer has been successfully processed.</p></center><hr>
         <p>Transaction ID: <?php echo $transaction_id; ?></p>
         <p>Amount: <?php echo $amount; ?> INR</p>

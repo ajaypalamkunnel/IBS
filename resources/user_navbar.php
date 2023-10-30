@@ -8,22 +8,21 @@
 </head>
 
 <body>
-  <div class="nav-wrapper">
-    <div class="topnav" id="theTopNav">
-      <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
-        &#9776;
-      </a>
-      <?php
-      session_start();
-      $staffName = $_SESSION['user_id'];
-      ?>
-      <a id="user">Welcome,Dear
-        <?php echo $staffName ?>
-      </a>
-      <a id="logout" href="login.php" style="border-top-left-radius: 3px;"
-        onclick="return confirm('Are you sure?')">Logout</a>
-      <a id="profile" href="admin_profile.php">My Profile</a>
-      <a id="profile" href="admin_dashboard.php">Home</a>
+    <div class="nav-wrapper">
+        <div class="topnav" id="theTopNav">
+            <a href="javascript:void(0);" class="icon" onclick="openNav()" id="hamburger">
+                &#9776;
+            </a>
+            <?php
+              session_start()
+            ?>
+            <a id="user" style="color: white;">Welcome, &nbsp;Admin !</a>
+
+            <a id="logout" href="login.php" style="border-top-left-radius: 3px;" 
+                    onclick="return confirm('Are you sure?')">Logout</a>
+                    <a id="profile" href="admin_profile.php">My Profile</a>
+                    <a id="profile" href="admin_dashboard.php">Home</a>
+        </div>
     </div>
   </div>
 
