@@ -4,13 +4,7 @@
 [2023-09-23] tested ok
 [2023-09-23] sample4
 [2023-09-23] sample5
-<<<<<<< HEAD
-<<<<<<< HEAD
-[2023-09-23] New offer!!! Savings offer gets 8% intrest!!! Vist your Bank Branch!!!!!..........
-=======
-[2023-10-16] alex is a saanam
-[2023-10-16] jolii joel
->>>>>>> 25e81d16e34cefa45dfea15201bb8ddaf5a56012
-=======
 
->>>>>>> e15a90c98d95646980fe51393aba1bba5612d1fa
+[2023-09-23] New offer!!! Savings offer gets 8% intrest!!! Vist your Bank Branch!!!!!..........
+
+[2023-10-30] ergt
