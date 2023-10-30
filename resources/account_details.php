@@ -59,7 +59,12 @@
 
         </div>
 
+
+       
+        ?>
     </div>
 </body>
-
 </html>
+<?php
+include "about.php";
+?>
