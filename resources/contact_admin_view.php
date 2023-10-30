@@ -95,6 +95,9 @@ include "user_navbar.php";
     }
     ?>
 </div>
-
+<br><br><br><br><br><br>
+    <footer style="background-color: #263238; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+    &copy; 2023 Internet Banking System. All rights reserved.
+</footer>
 </body>
 </html>

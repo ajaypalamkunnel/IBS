@@ -16,7 +16,7 @@ include "user_navbar.php"
 
 <body>
     <center>
-        <h2>Hi Welcome Admin!!</h2>
+        <h2>Hi, Welcome to IBS Staff Administrator Dashboard!!</h2>
         <div class="discription">
         <P>From here you can manage all of core Internet Banking settings. You can add/manage customers, view their transactions, edit their details and even delete them. You can also post news on the website.
 Please keep in mind that with big power comes big responsibility. Therefore please do not misuse your admin control to create trouble.</P>    
@@ -38,7 +38,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="two">
                 <a href="customer_list.php">
                     <i class="fa-solid fa-users fa-2xl"></i>
-                    <h3>List customers/Search</h3>
+                    <h3>Customer Account Details</h3>
                 </a>
             </div>
 
@@ -71,7 +71,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="two">
                 <a href="branch_details.php">
                 <i class="fa-solid fa-building-columns fa-2xl"></i>
-                    <h3>Branch Details/ Report Generation</h3>
+                    <h3>Branch Details</h3>
                 </a>
             </div>
 
@@ -91,7 +91,9 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
         </div>
 
     </center>
-
+    <footer style="background-color: #263238; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+    &copy; 2023 Internet Banking System. All rights reserved.
+</footer>
 
 
 </body>
