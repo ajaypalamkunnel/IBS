@@ -25,8 +25,7 @@ if (isset($_SESSION['user_id'])) {
         $stmt = $conn->prepare($query);
 
         if (!$stmt) {
-
-            $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+            $errors[] = "Error preparing the statement.--send";
         } else {
             $stmt->bind_param("s", $from_account_no);
             $stmt->execute();
@@ -57,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
         $stmt = $conn->prepare($query);
 
         if (!$stmt) {
-            $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+            $errors[] = "Error preparing the statement.--recevive";
         } else {
             $stmt->bind_param("s", $to_account_no);
             $stmt->execute();
@@ -83,9 +82,7 @@ if (empty($errors)) {
     $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
-
-        $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
-
+        $errors[] = "Error preparing the statement.--deduct";
     } else {
         $stmt->bind_param("ds", $amount, $from_account_no);
         $stmt->execute();
@@ -97,9 +94,7 @@ if (empty($errors)) {
             $stmt = $conn->prepare($sql);
 
             if (!$stmt) {
-
-                $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
-
+                $errors[] = "Error preparing the statement.---add";
             } else {
                 $stmt->bind_param("ds", $amount, $to_account_no);
                 $stmt->execute();
@@ -129,29 +124,27 @@ if (empty($errors)) {
                             if ($stmt->errno === 1062) {
                                 $conn->rollback(); // Rollback in case of a duplicate transaction_id
                                 $conn->autocommit(TRUE); // Re-enable autocommit
-                                $errors[] = "Bank server down! Please try after sometime.";//Duplicate transaction entry detected.
+                                $errors[] = "Duplicate transaction entry detected.";
                             } else {
                                 $conn->rollback(); // Rollback in case of an error
                                 $conn->autocommit(TRUE); // Re-enable autocommit
-                                $errors[] = "Bank server down! Please try after sometime.";//Error adding transaction entry.
+                                $errors[] = "Error adding transaction entry.";
                             }
                         }
                     } else {
                         $conn->rollback(); // Rollback in case of an error
                         $conn->autocommit(TRUE); // Re-enable autocommit
-
-                        $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
-
+                        $errors[] = "Error preparing the statement.---137";
                     }
                 } else {
                     $conn->rollback(); // Rollback in case of an error
                     $conn->autocommit(TRUE); // Re-enable autocommit
-                    $errors[] = "Bank server down! Please try after sometime.";//Error updating receiver's account.
+                    $errors[] = "Error updating receiver's account.";
                 }
             }
         } else {
             $conn->autocommit(TRUE); // Re-enable autocommit
-            $errors[] = "Bank server down! Please try after sometime.";//Error updating sender's account.
+            $errors[] = "Error updating sender's account.";
                 }
             }
         }
@@ -279,6 +272,3 @@ function generateTransactionId() {
     </script>
 </body>
 </html>
-<?php
-include "about.php";
-?>

@@ -60,6 +60,3 @@ unset($_SESSION['transaction_id'], $_SESSION['amount'], $_SESSION['from_account_
     </div>
 </body>
 </html>
-<?php
-include "about.php";
-?>
