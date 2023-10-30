@@ -16,7 +16,7 @@ require("connection.php");
             text-align: center;
             margin-top: 50px;
             max-width: 400px;
-            margin-bottom: 300px;
+            margin-bottom: 250px;
         }
 
         input[type="text"],

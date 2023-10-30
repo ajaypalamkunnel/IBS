@@ -235,7 +235,7 @@ function generateTransactionId() {
             </div>
         </div>
     </div>
-
+    <br><br><br>
     <script>
         function validateForm() {
             // Check if all required fields are filled

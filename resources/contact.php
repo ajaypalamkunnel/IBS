@@ -22,6 +22,8 @@ include "customer_navbar.php";
         .container {
             max-width: 600px;
             margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 250px;
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
@@ -80,7 +82,7 @@ include "customer_navbar.php";
             // Display a confirmation message
             $displayMessage = "<h2>Thank you, $name!</h2>";
             $displayMessage .= "<p>Your message has been received.</p> <p><strong>Email:</strong> $email</p><p><strong>Message:</strong> $message</p>";
-
+            echo "<br>";
         } else {
             // Display the contact form if it's not a POST request.
             $displayMessage = "<h2>Contact Bank</h2>";
