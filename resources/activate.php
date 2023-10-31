@@ -10,7 +10,7 @@ include "connection.php";
      // Execute the query
      if ($conn->query($sql) === TRUE) {
          echo" <script>alert( 'Account Activated successfully.');</script>";
-         echo '<script>window.location.href = "search_customer.php";</script>';
+         echo '<script>window.location.href = "customer_list.php";</script>';
      } else {
          echo "Error updating account status: " . $conn->error;
          
