@@ -60,8 +60,8 @@
                 <p><strong>Balance&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row2['balance']; ?></form></p>
                 <p><strong>Branch&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['branch']; ?></form></p>
                 <p><strong>Join date&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['join_date']; ?></form></p>
-                <p><strong>Account Type&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo "account type"; ?></form></p>
-                <p><b>Role&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b>user</form></p>
+
+                
                 <p><strong><a href="transaction_history.php"/>Transactions</a></p>
             </div>
         </div>
