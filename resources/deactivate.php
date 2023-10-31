@@ -1,4 +1,7 @@
-
+<?php
+include "header.php";
+include "user_navbar.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +11,19 @@
     <title>Account Number Lookup</title>
 </head>
 <body>
-    <h1>Account Number</h1>
+    <h2>Account Deactivation</h2>
     <div class="form-container">
         <form method="post" action="deactivate.php">
             <label for="accountNumber">Account Number:</label>
             <input type="text" id="accountNumber" name="accountNumber" required>
-            <a class='button' href='admin_dashboard.php?"'>Home</a>
             <button type="submit">Submit</button>
+            <a class='button' href='manage_customer.php?"'>Cancel</a>
+            
         </form>
     </div>
+    <footer style="background-color: #263238; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+    &copy; 2023 Internet Banking System. All rights reserved.
+</footer>
 </body>
 </html>
 
@@ -33,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {
-        echo" <script>alert( $accountNumber.'Account status updated successfully.');</script>";
+        echo '<script>alert("' . $accountNumber . ' Account status updated successfully.");</script>';
+        echo '<script>window.location.href = "manage_customer.php";</script>';
     } else {
         echo "Error updating account status: " . $conn->error;
         

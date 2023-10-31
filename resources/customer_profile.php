@@ -50,7 +50,7 @@
             <div class="profile_box">
                 <div class="img">
                     <p><b>USER</b></p><br>
-                    <img src="images/user_profile_pic.png" height="200" width="200" align="middle" /><br>
+                    <img src="images\imgsample.png" height="200" width="200" align="middle" /><br>
                     <p>
                         <?php echo $row['user_id'], $row['last_name']; ?>
                     </p><br>
@@ -110,16 +110,16 @@
                     <p><strong><a href="transaction_history.php" />Transactions</a></p>
                 </div>
             </div>
-            <?php
+
+        <?php
         } else {
             echo "<p>No customer details found</p>";
         }
         mysqli_close($conn);
         ?>
-
+<iframe src="about.php" style="width: 100%; height: 320px; border: none;"></iframe>
 </body>
 
 </html>
-<?php
-include "about.php";
-?>
+       
+   
