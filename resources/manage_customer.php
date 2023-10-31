@@ -28,7 +28,7 @@ include "user_navbar.php";
             echo "<table>";
             echo "<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Actions</th></tr>";
             while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
+                echo "  <tr>";
                 echo "<td>" . $row["user_id"] . "</td>";
                 echo "<td>" . $row["first_name"] . "</td>";
                 echo "<td>" . $row["last_name"] . "</td>";

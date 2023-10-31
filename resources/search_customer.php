@@ -80,7 +80,7 @@ $result = $conn->query($search_sql);
         <div class="popup-content">
             <span class="close-button" onclick="closePopup()">&times;</span>
             <h2>Generate Report</h2>
-            <form id="reportForm" action="pdf.php">
+            <form id="reportForm" method="post" action="pdf.php">
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate" name="startDate" required>
                 <label for="endDate">End Date:</label>
