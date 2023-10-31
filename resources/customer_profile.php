@@ -50,7 +50,7 @@
             <div class="profile_box">
                 <div class="img">
                     <p><b>USER</b></p><br>
-                    <img src="images/user_profile_pic.png" height="200" width="200" align="middle" /><br>
+                    <img src="images\imgsample.png" height="200" width="200" align="middle" /><br>
                     <p>
                         <?php echo $row['user_id'], $row['last_name']; ?>
                     </p><br>
@@ -110,36 +110,16 @@
                     <p><strong><a href="transaction_history.php" />Transactions</a></p>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="profile-details">
-                <h3>Personal Details</h3><br>
-                <p><strong>Account Number&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row2['account_no']; ?></p>
-                <p><strong>First Name&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['first_name']; ?></form></p>
-                <p><strong>Last Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['last_name']; ?></form></p>
-                <p><strong>Gender&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['gender']; ?></form></p>
-                <p><strong>DOB&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['dob']; ?></form></p>
-                <p><strong>Address&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['address']; ?></form></p>
-                <p><strong>Balance&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row2['balance']; ?></form></p>
-                <p><strong>Branch&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['branch']; ?></form></p>
-                <p><strong>Join date&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><?php echo $row['join_date']; ?></form></p>
 
-                
-                <p><strong><a href="transaction_history.php"/>Transactions</a></p>
-            </div>
-        </div>
         <?php
-=======
-            <?php
->>>>>>> master
         } else {
             echo "<p>No customer details found</p>";
         }
         mysqli_close($conn);
         ?>
-
+<iframe src="about.php" style="width: 100%; height: 320px; border: none;"></iframe>
 </body>
 
 </html>
-<?php
-include "about.php";
-?>
+       
+   
