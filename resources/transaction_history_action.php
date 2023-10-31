@@ -183,7 +183,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
         
     </center>
-
+    <?php
+include "about.php";
+?>
 </body>
 
 </html>
