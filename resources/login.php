@@ -58,6 +58,7 @@
         
         // Use prepared statement to fetch the hashed password from the database
         $sql = "SELECT user_id, password, role FROM login_table WHERE user_id=?";
+      //  $sql = "SELECT account_status, password, role FROM accounts_table WHERE user_id= $n";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "s", $n);
         mysqli_stmt_execute($stmt);
@@ -97,7 +98,7 @@
                     mysqli_stmt_execute($stmtt);
 
                     // Fetch the account_no based on user_id
-                    $sql = "SELECT account_no FROM accounts_table WHERE user_id=?";
+                    $sql = "SELECT account_no, account_status FROM accounts_table WHERE user_id=?";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "s", $_SESSION['user_id']);
                     mysqli_stmt_execute($stmt);
@@ -106,6 +107,7 @@
                     if (mysqli_num_rows($account_result) > 0) {
                         $account_info = mysqli_fetch_assoc($account_result);
                         $_SESSION['account_no'] = $account_info['account_no'];
+                        $_SESSION['account_status'] = $account_info['account_status'];
                     }
 
                     if ($r === 'Customer') {

@@ -13,8 +13,13 @@
     include "connection.php";
     include "header.php";
     include "customer_navbar.php";
+    $acc_status = $_SESSION['account_status'];
 
-    $customer_id = $_SESSION['user_id'];
+    if ($acc_status == 'Inactive') {
+        echo '<script>alert("Your account is Inactive. Please contact your bank branch."); window.location = "customer_dashboard.php";</script>';
+    } else
+
+        $customer_id = $_SESSION['user_id'];
 
     $search_sql = "SELECT c.*, a.* FROM customer_table c
                  LEFT JOIN accounts_table a ON c.user_id = a.user_id
@@ -52,6 +57,7 @@
                 echo "<p>Date of Birth: {$row["dob"]}</p>";
                 echo "<p>PAN Card No: {$row["pan_card_no"]}</p>";
                 echo "<p>Aadhar No: {$row["aadhaar_no"]}</p>";
+                echo "<p>Account status: {$row["account_status"]}</p>";
                 echo "<p>Balance: {$row["balance"]}</p>";
 
             }
@@ -60,10 +66,11 @@
         </div>
 
 
-       
+
         ?>
     </div>
 </body>
+
 </html>
 <?php
 include "about.php";

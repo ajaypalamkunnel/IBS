@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the query
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Account status updated successfully.');</script>";
+        echo" <script>alert( $accountNumber.'Account status updated successfully.');</script>";
     } else {
         echo "Error updating account status: " . $conn->error;
         

@@ -2,12 +2,16 @@
 include "header.php";
 include "customer_navbar.php";
 require("connection.php");
+$acc_status = $_SESSION['account_status'];
 
-if (!isset($_SESSION['account_no'])) {
-    // Redirect to the login page if the account number is not set in the session
-    header("Location: login.php");
-    exit();
-}
+if ($acc_status == 'Inactive') {
+    echo '<script>alert("Your account is Inactive. Please contact your bank branch."); window.location = "customer_dashboard.php";</script>';
+} else
+    if (!isset($_SESSION['account_no'])) {
+        // Redirect to the login page if the account number is not set in the session
+        header("Location: login.php");
+        exit();
+    }
 
 $session_account_no = $_SESSION['account_no'];
 $balance = "N/A";
@@ -50,33 +54,40 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Balance</title>
-    <link rel="stylesheet" href="style/view_balance_styles.css"> <!-- Add this line to link to your external CSS file -->
+    <link rel="stylesheet" href="style/view_balance_styles.css">
+    <!-- Add this line to link to your external CSS file -->
 </head>
-<body>
-<h2>View Your Account Balance</h2>
-<form method="POST" action="">
-    <label for="account_no">Your account number:</label>
-    <br><br>
-    <input type="text" id="account_no" name="account_no" value="<?php echo $session_account_no; ?>">
-    <p><center>
-    <button type="submit">View Balance</button></center></p>
-</form>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if ($balance !== "N/A") {
-        echo "<p class='success'>Your account balance is: $balance</p>";
-    } else {
-        echo "<p class='error'>Account not found for the logged-in user.</p>";
+<body>
+    <h2>View Your Account Balance</h2>
+    <form method="POST" action="">
+        <label for="account_no">Your account number:</label>
+        <br><br>
+        <input type="text" id="account_no" name="account_no" value="    ">
+        <p>
+            <center>
+                <button type="submit">View Balance</button>
+            </center>
+        </p>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($balance !== "N/A") {
+            echo "<p class='success'>Your account balance is: $balance</p>";
+        } else {
+            echo "<p class='error'>Account not found for the logged-in user.</p>";
+        }
     }
-}
-?>
-<br><br><br><br><br><br><br><br><br><br><br><br>
+    ?>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
+
 </html>
 <?php
 include "about.php";

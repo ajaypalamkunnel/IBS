@@ -53,14 +53,27 @@ $result = $conn->query($search_sql);
                 echo "<p>Date of Birth: {$row["dob"]}</p>";
                 echo "<p>PAN Card No: {$row["pan_card_no"]}</p>";
                 echo "<p>Aadhar No: {$row["aadhaar_no"]}</p>";
+                echo "<p>Account status: {$row["account_status"]}</p>";
                 echo "<p>Balance: {$row["balance"]}</p>";
-                
+
             }
             ?>
-            <input class="download-button submit-button" name="Report" type="button" value="Report" onclick="openPopup()">
-            
+            <input class="download-button submit-button" name="Report" type="button" value="Report"
+                onclick="openPopup()">
+            <?php
+            $acc_status = $row["account_status"];
+            if ($acc_status == 'Inactive') {
+                ?>
+                <center>
+                    <a class="download-button submit-button" name="Activate" type="button" value="Activate"
+                        href="activate.php?id=<?php echo $row['user_id']; ?>">Activate</a>
+                </center>
+                <?php
+            } else
+            ?>
+
         </div>
-       
+
     </div>
 
     <div class="popup-container" id="popup">

@@ -1,9 +1,15 @@
+
 <?php
 include "header.php";
 include "customer_navbar.php";
 require("connection.php");
 
-$errors = [];
+$acc_status = $_SESSION['account_status'];
+
+if ($acc_status == 'Inactive') {
+    echo '<script>alert("Your account is Inactive. Please contact your bank branch."); window.location = "customer_dashboard.php";</script>';
+} else
+    $errors = [];
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,44 +22,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate inputs
 
-     // Validate if the from_account_no belongs to the logged-in user_id and is a Current Account
-     $query = "SELECT a.balance, c.pin, a.account_type 
+    // Validate if the from_account_no belongs to the logged-in user_id and is a Current Account
+    $query = "SELECT a.balance, c.pin, a.account_type 
      FROM accounts_table a 
      INNER JOIN customer_table c ON a.user_id = c.user_id 
      WHERE a.account_no = ? AND a.user_id = ?";
-$stmt = $conn->prepare($query);
+    $stmt = $conn->prepare($query);
 
-if (!$stmt) {
+    if (!$stmt) {
 
-$errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+        $errors[] = "Bank server down! Please try after sometime."; //Error preparing the statement.
 
-} else {
-$stmt->bind_param("ss", $from_account_no, $_SESSION['user_id']);
-$stmt->execute();
-$result = $stmt->get_result();
+    } else {
+        $stmt->bind_param("ss", $from_account_no, $_SESSION['user_id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-if ($result->num_rows !== 1) {
-   $errors[] = "Invalid sender account number.";
-} else {
-   $row = $result->fetch_assoc();
-   $sender_balance = $row['balance'];
-   $correct_pin = $row['pin'];
-   $account_type = $row['account_type'];
+        if ($result->num_rows !== 1) {
+            $errors[] = "Invalid sender account number.";
+        } else {
+            $row = $result->fetch_assoc();
+            $sender_balance = $row['balance'];
+            $correct_pin = $row['pin'];
+            $account_type = $row['account_type'];
 
-   // Check if the entered PIN is invalid
-   if (trim($correct_pin) !== trim($pin)) {
-       $errors[] = "Invalid PIN.";
-   } else {
-       // Check if sender has insufficient balance
-       if ($sender_balance < $amount) {
-           $errors[] = "Insufficient balance in your account.";
-       } else if ($account_type == "Fixed Deposit Account") {
-           $errors[] = "Transaction not possible! Your are trying to perform transaction from a Fixed Deposit account.";
-       }
-   }
-}
-$stmt->close();
-}
+            // Check if the entered PIN is invalid
+            if (trim($correct_pin) !== trim($pin)) {
+                $errors[] = "Invalid PIN.";
+            } else {
+                // Check if sender has insufficient balance
+                if ($sender_balance < $amount) {
+                    $errors[] = "Insufficient balance in your account.";
+                } else if ($account_type == "Fixed Deposit Account") {
+                    $errors[] = "Transaction not possible! Your are trying to perform transaction from a Fixed Deposit account.";
+                }
+            }
+        }
+        $stmt->close();
+    }
 
 
     // Validate to_account_no and IFSC
@@ -62,7 +68,7 @@ $stmt->close();
 
     if (!$stmt) {
 
-        $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+        $errors[] = "Bank server down! Please try after sometime."; //Error preparing the statement.
 
     } else {
         $stmt->bind_param("ss", $to_account_no, $ifsc);
@@ -97,7 +103,7 @@ $stmt->close();
 
         if (!$stmt) {
 
-            $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+            $errors[] = "Bank server down! Please try after sometime."; //Error preparing the statement.
 
         } else {
             $stmt->bind_param("ds", $amount, $from_account_no);
@@ -111,7 +117,7 @@ $stmt->close();
 
                 if (!$stmt) {
 
-                    $errors[] = "Bank server down! Please try after sometime.";//Error preparing the statement.
+                    $errors[] = "Bank server down! Please try after sometime."; //Error preparing the statement.
 
                 } else {
                     $stmt->bind_param("ds", $amount, $to_account_no);
@@ -125,33 +131,33 @@ $stmt->close();
                         // Get current date and time
                         $date_issued = date("Y-m-d H:i:s");
 
-                           // Insert transaction entry into transaction_table
-    $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Inter-Bank transaction', ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+                        // Insert transaction entry into transaction_table
+                        $sql = "INSERT INTO transaction_table (transaction_id, transaction_type, from_account_no, to_account_no, date_issued, amount) VALUES (?, 'Inter-Bank transaction', ?, ?, ?, ?)";
+                        $stmt = $conn->prepare($sql);
 
-    if ($stmt) {
-        $transaction_id = generateTransactionId();
-        $date_issued = date("Y-m-d H:i:s");
-        $stmt->bind_param("ssssd", $transaction_id, $from_account_no, $fetchedAccountNumber, $date_issued, $amount);
-        $stmt->execute();
+                        if ($stmt) {
+                            $transaction_id = generateTransactionId();
+                            $date_issued = date("Y-m-d H:i:s");
+                            $stmt->bind_param("ssssd", $transaction_id, $from_account_no, $fetchedAccountNumber, $date_issued, $amount);
+                            $stmt->execute();
 
-        if ($stmt->affected_rows > 0) {
-            $conn->commit(); // Commit the transaction
-            $conn->autocommit(TRUE); // Re-enable autocommit
-            $success = true;
-        } else {
-            $conn->rollback(); // Rollback in case of an error
-            $conn->autocommit(TRUE); // Re-enable autocommit
-            $errors[] = "Bank server down! Please try after sometime. " . $stmt->error; //Error preparing the statement.
-        }
-        $stmt->close();
-    } else {
-        $conn->rollback(); // Rollback in case of an error
-        $conn->autocommit(TRUE); // Re-enable autocommit
+                            if ($stmt->affected_rows > 0) {
+                                $conn->commit(); // Commit the transaction
+                                $conn->autocommit(TRUE); // Re-enable autocommit
+                                $success = true;
+                            } else {
+                                $conn->rollback(); // Rollback in case of an error
+                                $conn->autocommit(TRUE); // Re-enable autocommit
+                                $errors[] = "Bank server down! Please try after sometime. " . $stmt->error; //Error preparing the statement.
+                            }
+                            $stmt->close();
+                        } else {
+                            $conn->rollback(); // Rollback in case of an error
+                            $conn->autocommit(TRUE); // Re-enable autocommit
 
-        $errors[] = "Bank server down! Please try after sometime. " . $conn->error; //Error preparing the statement.
+                            $errors[] = "Bank server down! Please try after sometime. " . $conn->error; //Error preparing the statement.
 
-    }
+                        }
 
                     } else {
                         $conn->rollback(); // Rollback in case of an error
@@ -183,7 +189,8 @@ if ($success) {
     exit();
 }
 
-function generateTransactionId() {
+function generateTransactionId()
+{
     // Generate a 12-character alphanumeric transaction ID
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $transaction_id = '';
@@ -196,6 +203,7 @@ function generateTransactionId() {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/fund_transfers_styles.css">
@@ -204,10 +212,13 @@ function generateTransactionId() {
 <body>
     <form id="transferForm" class="fund_transfer_form" method="post" onsubmit="return validateForm()">
         <font Color="Purple">
-            <center><h2 style="font-size:40px;">IBS Banking Transaction</h2></center>
+            <center>
+                <h2 style="font-size:40px;">IBS Banking Transaction</h2>
+            </center>
             <div class="form-group">
                 <label for="from_account_no">From Account Number:</label>
-                <input type="text" id="from_account_no" name="from_account_no" required value="<?php echo isset($_SESSION['account_no']) ? $_SESSION['account_no'] : ''; ?>">
+                <input type="text" id="from_account_no" name="from_account_no" required
+                    value="<?php echo isset($_SESSION['account_no']) ? $_SESSION['account_no'] : ''; ?>">
             </div>
 
             <div class="form-group">
@@ -218,7 +229,7 @@ function generateTransactionId() {
             <div class="form-group">
                 <label for="ifsc">IFSC Code:</label>
                 <input type="text" id="ifsc" name="ifsc" required>
-            </div>     
+            </div>
 
             <!-- Hidden input field for PIN -->
             <input type="hidden" id="pin" name="pin" value="" required>
@@ -290,6 +301,7 @@ function generateTransactionId() {
         }
     </script>
 </body>
+
 </html>
 <?php
 include "about.php";
