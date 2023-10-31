@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Verify the entered account_no and PIN
         $stmt = $conn->prepare("SELECT c.*, a.* FROM customer_table c
         LEFT JOIN accounts_table a ON c.user_id = a.user_id WHERE a.user_id = ? AND a.account_no = ? AND c.pin = ?");
-        
+
         // Check if prepare() succeeded
         if ($stmt === false) {
             die("Error in SQL statement: " . $conn->error);
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($result->num_rows > 0) {
                 // Account number and PIN verified, fetch transaction history
                 $transaction_stmt = $conn->prepare("SELECT * FROM transaction_table WHERE from_account_no = ?");
-                
+
                 // Check if prepare() succeeded
                 if ($transaction_stmt === false) {
                     die("Error in SQL statement: " . $conn->error);
@@ -86,55 +86,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <html>
-    <head>
+
+<head>
     <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
-.container {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px;
-    max-width: 100px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 50px;
+            max-width: 100px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.transactionRecord {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
+        .transactionRecord {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
 
-.transactionAmount {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
+        .transactionAmount {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
 
-.transactionID {
-    color: #4CAF50;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+        .transactionID {
+            color: #4CAF50;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-.error {
-    color: #ff4545;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 24px; /* Adjust the font size to your preference */
-    text-align: center; /* Align the text to the center */
-}
+        .error {
+            color: #ff4545;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 24px;
+            /* Adjust the font size to your preference */
+            text-align: center;
+            /* Align the text to the center */
+        }
 
-.back-button {
+        .back-button {
             position: absolute;
             bottom: 10px;
             right: 10px;
@@ -149,10 +152,38 @@ body {
             background-color: #45a049;
         }
 
-</style>
+        .download-button {
+            width: 150px;
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .download-button:hover {
+            background-color: #555;
+        }
+    </style>
 
 </head>
-    <body>
+
+<body>
+
     <a href="transaction_history.php" class="back-button">Back</a>
+    <center>
+        <form id="reportForm" action="pdf.php" method="post">
+        <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required>
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate" required>
+                <input type="submit" class="download-button submit-button" value="Download">
+        </form>
+        
+    </center>
+
 </body>
+
 </html>
