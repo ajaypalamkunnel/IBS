@@ -1,0 +1,86 @@
+table {
+    width: 80%; /* Adjust table width to your preference */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table horizontally */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #262424;
+    color: white;
+}
+
+/* Style the anchor tag to look like a button */
+a.button,
+a.buttond {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+a.buttond {
+    background-color: #fa020f;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+/* Change the button color on hover */
+a.button:hover {
+    background-color: #2980b9;
+}
+
+a.buttond:hover {
+    background-color: #e82e38;
+}
+
+h2 {
+    color: purple;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+a.add-customer {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+a.add-customer:hover {
+    background-color: #45a049;
+}
+.deac{
+
+    background-color: #d45057;
+}

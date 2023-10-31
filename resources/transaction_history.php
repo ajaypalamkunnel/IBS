@@ -2,6 +2,11 @@
 include "header.php";
 include "customer_navbar.php";
 require("connection.php");
+$acc_status =  $_SESSION['account_status'];
+
+if ($acc_status == 'Inactive') {
+    echo '<script>alert("Your account is Inactive. Please contact your bank branch."); window.location = "customer_dashboard.php";</script>';
+}else
 ?>
 <!DOCTYPE html>
 <html lang="en">

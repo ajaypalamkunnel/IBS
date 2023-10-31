@@ -1,5 +1,5 @@
 <?php
-require 'mpdf/vendor/autoload.php'; 
+require 'mpdf/vendor/autoload.php';
 //include "transactions.php";// Include the PSR-3 Logger and Monolog
 
 use Monolog\Logger;
@@ -16,8 +16,9 @@ $mpdf = new \Mpdf\Mpdf(['logger' => $logger]);
 require("connection.php");
 include("customer_navbar.php");
 $session_account_no = $_SESSION['account_no'];
-
+//echo'acc:'. $session_account_no;
 // Convert startDate and endDate to match the date format in the database
+//echo'da: '.$_POST['startDate'];
 $startDate = date('Y-m-d H:i:s', strtotime($_POST['startDate']));
 $endDate = date('Y-m-d H:i:s', strtotime($_POST['endDate']));
 
@@ -26,6 +27,10 @@ WHERE from_account_no = $session_account_no
 AND date_issued BETWEEN '$startDate' AND '$endDate'";
 
 $result = mysqli_query($conn, $sql);
+
+
+$row = mysqli_fetch_assoc($result);
+echo "data : " . $row["transaction_id"] . "" . $row["From Account No"];
 
 if ($result) {
     // Create an HTML table to display the data with styling
@@ -82,25 +87,35 @@ if ($result) {
                 <th>Date Issued</th>
                 <th>Amount</th>
             </tr>';
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $html .= '<tr>';
+            $html .= '<td>' . $row['transaction_id'] . '</td>';
+            $html .= '<td>' . $row['transaction_type'] . '</td>';
+            $html .= '<td>' . $row['from_account_no'] . '</td>';
+            $html .= '<td>' . $row['to_account_no'] . '</td>';
+            $html .= '<td>' . $row['date_issued'] . '</td>';
+            $html .= '<td>' . $row['amount'] . '</td>';
+            $html .= '</tr>';
+        }
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $html .= '<tr>';
-        $html .= '<td>' . $row['transaction_id'] . '</td>';
-        $html .= '<td>' . $row['transcation_type'] . '</td>';
-        $html .= '<td>' . $row['from_account_no'] . '</td>';
-        $html .= '<td>' . $row['to_account_no'] . '</td>';
-        $html .= '<td>' . $row['date_issued'] . '</td>';
-        $html .= '<td>' . $row['amount'] . '</td>';
-        $html .= '</tr>';
+        $html .= '</table>';
+
+        // Write HTML content to PDF
+        $mpdf->WriteHTML($html);
+
+        // Output the PDF as a download
+        $mpdf->Output('IBS_Statement.pdf', 'D');
+
+
+    } else {
+        echo '<script>
+            alert("No transactions in the given period");
+            window.window.location = "admin_dashboard.php";
+          </script>';
     }
 
-    $html .= '</table>';
 
-    // Write HTML content to PDF
-    $mpdf->WriteHTML($html);
-
-    // Output the PDF as a download
-    $mpdf->Output('IBS_Statement.pdf', 'D');
 } else {
     echo "Query execution failed: " . mysqli_error($conn);
 }

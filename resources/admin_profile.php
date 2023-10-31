@@ -18,7 +18,7 @@
         $customer_id = $_SESSION['user_id']; // Example: You may fetch the customer ID from a URL parameter or another source
 
         // Replace this with your SQL query to fetch customer details
-        $sql = "SELECT user_id,first_name,last_name,email_id,contact_no FROM admin_table WHERE user_id = '$customer_id'";
+        $sql = "SELECT user_id,first_name,last_name,email_id,contact_no FROM staff_administrator_table WHERE user_id = '$customer_id'";
         $result = mysqli_query($conn, $sql);
 
         // Check if the query executed successfully
@@ -32,14 +32,14 @@
             $row = mysqli_fetch_assoc($result);
             ?>
             <header>
-        <h1>Admin Profile</h1>
+        <h1>Staff Profile</h1>
     </header>
             
         <div class="profile_box">
             <div class="img">
-            <p><b>ADMINISTRATOR</b></p><br>
+            <p><b>STAFF</b></p><br>
             <img src="images/admin_profile_pic.jpeg" height="200" width="200" align="middle"/><br> 
-            <p><?php echo $row['user_id']; ?></p><br>
+            <p><strong><?php echo $row['user_id']; ?></strong></p><br>
             <p><h2>Contact details</h2></p>
                 <p><strong>email id:</strong> <?php echo $row['email_id']; ?></p>
                 <p><strong>Mobile:</strong> <?php echo $row['contact_no']; ?></p>
@@ -48,7 +48,7 @@
                 <h2>Personal Information</h2>
                 <p><strong><form>First Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['first_name']; ?>"readonly></form></p>
                 <p><strong><form>Last Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</strong><input type="text" value= "<?php echo $row['last_name']; ?>"readonly></form></p>
-                <p><b><form>Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Admin"readonly></form></p>
+                <p><b><form>Role&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Staff"readonly></form></p>
                 <p><b><form>Status&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:&emsp;</b><input type="text" value= "Active"readonly></form></p>
             </div>
         </div>

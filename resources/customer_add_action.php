@@ -227,6 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         </div>
         <div class="text-center ">
+        <a href="admin_dashboard.php" class="btn btn-outline-success">Home</a>
         <a href="customer_add.php" class="btn btn-outline-success">Add more</a>
     </div>'; // Closing div added
     }
