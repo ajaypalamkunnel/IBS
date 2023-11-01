@@ -52,10 +52,11 @@
                     <p><b>USER</b></p><br>
                     <img src="images/user_profile_pic.png" height="200" width="200" align="middle" /><br>
                     <p>
-                        <?php echo $row['user_id'], $row['last_name']; ?>
+                       <strong><?php echo strtoupper($row['user_id'] . ' ' . $row['last_name']); ?></strong> 
+
                     </p><br>
                     <p>
-                    <h2>Contact details</h2>
+                    <h>Contact details</h5>
                     </p><br>
                     <p><strong>email id:</strong>
                         <?php echo $row['email_id']; ?>

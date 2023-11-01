@@ -24,7 +24,7 @@ Please remember to keep your privacy.</P>
 
             <div class="one">
 
-                <a href="account_details.php">
+                <a href="account_check.php">
                 <i class="fa-solid fa-user fa-2xl"></i>
                     <h3>Account Details</h3>
                 </a>
