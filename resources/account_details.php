@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style/customer_profile_admin_style.css">
-    <title>Customer Details</title>
+    <title>Account Details</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                 echo '<p class="error-message">Error: ' . $conn->error . '</p>';
             } else if ($result->num_rows > 0) {
                 // Data retrieved successfully, display the profile image
-                echo '<img src="images/logo.png" alt="Customer Avatar">';
+                echo '<img src="images\imgsample.png" alt="Customer Avatar">';
             } else {
                 // No data found for the provided account number
                 echo '<p class="error-message">No customer found for the provided account number.</p>';
@@ -67,7 +67,7 @@
 
 
 
-        ?>
+        
     </div>
 </body>
 

@@ -16,7 +16,7 @@
             <?php
               session_start()
             ?>
-            <a id="user" style="color: white;">Welcome, &nbsp;Admin !</a>
+            <a id="user" style="color: white;">Welcome, &nbsp; Bank Personnel !</a>
 
             <a id="logout" href="login.php" style="border-top-left-radius: 3px;" 
                     onclick="return confirm('Are you sure?')">Logout</a>

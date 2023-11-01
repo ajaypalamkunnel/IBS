@@ -42,3 +42,11 @@ Name: Koel Sheen
 Email: koel@gmail.com
 Message: egf
 
+Name: Koel Sheen
+Email: koel@gmail.com
+Message: Test contact message
+
+Name: Koel Sheen
+Email: koel@gmail.com
+Message: this is a test enquiry
+

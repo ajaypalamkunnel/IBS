@@ -38,7 +38,7 @@ Please keep in mind that with big power comes big responsibility. Therefore plea
             <div class="two">
                 <a href="customer_list.php">
                     <i class="fa-solid fa-users fa-2xl"></i>
-                    <h3>Customer Account Details</h3>
+                    <h3>Customer Account Management and Reports</h3>
                 </a>
             </div>
 
