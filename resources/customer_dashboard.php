@@ -33,7 +33,7 @@ Please remember to keep your privacy.</P>
             <div class="two">
                 <a href="fund_transfer.php">
                 <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
-                    <h3>Fund transfer</h3>
+                    <h3>Intra Bank Transaction</h3>
                 </a>
             </div>
 
@@ -42,7 +42,7 @@ Please remember to keep your privacy.</P>
 
                 <a href="transaction.php">
                 <i class="fa-solid fa-bell fa-2xl"></i>
-                    <h3>Tap & Transact</h3>
+                    <h3>Inter Bank Transaction</h3>
                 </a>
             </div>
 

@@ -78,7 +78,7 @@
                 exit();
 
             } else {
-                echo "pass111: " . $pass;
+               // echo "pass111: " . $pass;
 
                 // Use password_verify to check if the entered password matches the stored hash
                 if (password_verify($p, $hashedPassword)) {
